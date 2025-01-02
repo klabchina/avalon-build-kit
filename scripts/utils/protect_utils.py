@@ -34,7 +34,8 @@ def protect_apk(path, output_path, protect_type, sign_name):
         protect_cmd = '"%s" -jar -Xms2048m -Xmx4096m "%s" -jiagu %s %s' % \
             (file_utils.get_java_cmd(), file_utils.get_full_tool_path("jiagu_qihoo/jiagu.jar"), path, output_path)
 
-        print protect_cmd
+        print(protect_cmd)
+
         ret = cli_utils.exec_cmd(protect_cmd)
         if ret:
             msg = "[FAIL] Failed Protected apk use 360"

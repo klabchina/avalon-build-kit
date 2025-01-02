@@ -84,7 +84,7 @@ def recompile_tuokeapk_project(application_name):
             break
         pattern = re.compile(r'.*String.*appClassName.*=.*\".*\";.*')
         if re.search(pattern, line):
-            print '[+] Find \"String appClassName = ...\", replace it with \"' + application_name + '\"'
+            print('[+] Find \"String appClassName = ...\", replace it with \"' + application_name + '\"')
             file_out.write('\t\t\tString appClassName = \"' + application_name + '\";\n')
         else:
             file_out.write(line)
@@ -100,12 +100,12 @@ def recompile_tuokeapk_project(application_name):
 
     subprocess.Popen("gradle clean", shell=True, stdout=subprocess.PIPE).stdout.read()
     out = subprocess.Popen("gradle build", shell=True, stdout=subprocess.PIPE).stdout.read()
-    print out
+    print(out)
     if out.find('BUILD SUCCESSFUL') < 0:
-        print 'Build error!'
+        print('Build error!')
         raise Exception("Gradle Build Failed")
         return False
-    print '[+] Rebuild TuokeApk project successfully!'
+    print('[+] Rebuild TuokeApk project successfully!')
     os.chdir('../../../scripts')
 
     return True
@@ -126,13 +126,13 @@ def remove_without_exception(item, type):
 
 def clean(base_dir):
     try:
-        print 'start clean'
+        print('start clean')
         if os.path.exists(base_dir):
             shutil.rmtree(base_dir)
 
         os.mkdir(base_dir)
     except Exception as e:
-        print e.message
+        print(e.message)
         pass
 
     os.chdir(tuapk_project_path)
@@ -199,7 +199,7 @@ def dex_protected(dir_name, dex_count, unknow_path):
 
     if jiagu_resut:
         msg = 'protected failed by klab_protected.jar'
-        print msg
+        print(msg)
         raise Exception(msg)
 
 
@@ -228,11 +228,11 @@ def lib_protected(extracted_dir):
                                       "config/apk_protected_klab/TuokeApk/app/build/outputs/apk/release/nice-way"))
 
     if ret:
-        print '[Error] apktool decompiled error!'
+        print('[Error] apktool decompiled error!')
         return
-    print '[+] Apktool decompiled Target-apk-release.apk successfully!'
+    print('[+] Apktool decompiled Target-apk-release.apk successfully!')
 
-    print '[+] Copying config/apk_protected_klab/TuokeApk/app/build/outputs/apk/release/nice-way/lib/...'
+    print('[+] Copying config/apk_protected_klab/TuokeApk/app/build/outputs/apk/release/nice-way/lib/...')
     rela_apk_output = "config/apk_protected_klab/TuokeApk/app/build/outputs/apk/release/nice-way/lib/"
     if not os.path.exists(extracted_dir + '/lib/'):
         os.mkdir(extracted_dir + '/lib/')
@@ -289,9 +289,9 @@ def klab_protected(filepath, sign_name):
     ret = apk_utils.decompile_apk(os.path.join(dir_name, 'Target.apk'), path.join(dir_name, 'Target'))
 
     if ret:
-        print '[Error] apktool decompiled error!'
+        print('[Error] apktool decompiled error!')
         return
-    print '[+] Apktool decompiled Target.apk successfully!'
+    print('[+] Apktool decompiled Target.apk successfully!')
 
     dex_num = find_dex_num(path.join(dir_name, 'Target'))
 
@@ -305,21 +305,21 @@ def klab_protected(filepath, sign_name):
     if applicationName:
         if not applicationName.startswith(packageName) and applicationName.startswith('.'):
             applicationName = packageName + applicationName
-        print '[+] Target app\'s Application: ', applicationName
+        print('[+] Target app\'s Application: ', applicationName)
         # Step3: 修改JiguApk工程中ProxyApplication中的applicationName变量为目标app的Application名称
         recompile_tuokeapk_project(applicationName)
     else:
-        print '[+] Target.apk has no self-defined Application!'
+        print('[+] Target.apk has no self-defined Application!')
         applicationName = 'com.targetapk.MyApplication'
         recompile_tuokeapk_project(applicationName)
         # Step3: 复制smali文件夹，跟反编译后的app下的smali合并
-        print '[+] Copy smali folder into Target folder...'
+        print('[+] Copy smali folder into Target folder...')
         smali_path = file_utils.get_full_path("config/apk_protected_klab/smali")
         out = subprocess.Popen('cp -rf ' + smali_path + ' ' + path.join(dir_name, 'Target/'), shell=True,
                                stdout=subprocess.PIPE).stdout.read()
 
     # Step4: 修改manifest文件，将自定义Application设定为“org.hackcode.ProxyApplication”
-    print '[+] Modified AndroidManifest.xml...'
+    print('[+] Modified AndroidManifest.xml...')
     application_node.setAttribute('android:name', 'org.hackcode.ProxyApplication')
 
     # Step4-1: 修改mainfest文件，添加magisk对应的 services
@@ -337,23 +337,23 @@ def klab_protected(filepath, sign_name):
     out = apk_utils.recompile_apk(path.join(dir_name, 'Target'), path.join(dir_name, 'Target/dist/Target.apk'))
 
     if out:
-        print '[Error] apktool recompiled error!'
+        print('[Error] apktool recompiled error!')
         return
-    print '[+] Apktool recompiled Target successfully!'
+    print('[+] Apktool recompiled Target successfully!')
 
     # Step6: 将重打包的app命名为Target.modified.apk,并提取重打包后的apk中的classes.dex文件，并压缩为TargetApk.zip文件
-    print '[+] Rename target app: \"Target.modified.apk\"'
+    print('[+] Rename target app: \"Target.modified.apk\"')
     shutil.copyfile(path.join(dir_name, 'Target/dist/Target.apk'), path.join(dir_name, 'Target.modified.apk'))
 
     ret = apk_utils.decompile_apk_nodex(os.path.join(dir_name, 'Target.modified.apk'), path.join(dir_name, 'Target.modified.apk_files'))
 
     if ret:
-        print '[Error] apktool decompiled error!'
+        print('[Error] apktool decompiled error!')
         return
-    print '[+] Apktool decompiled Target.modified.apk successfully!'
+    print('[+] Apktool decompiled Target.modified.apk successfully!')
     extracted_dir = path.join(dir_name, 'Target.modified.apk_files')
 
-    print '[+] Extracted classes.dex from Target.modifed.apk into TargetApk.zip'
+    print('[+] Extracted classes.dex from Target.modifed.apk into TargetApk.zip')
     shutil.copyfile(extracted_dir + '/classes.dex', path.join(dir_name, 'classes.dex'))
     for i in range(2, dex_num + 1):
         shutil.copyfile(extracted_dir + '/classes' + str(i) + '.dex', path.join(dir_name, 'classes' + str(i) + '.dex'))
@@ -364,7 +364,7 @@ def klab_protected(filepath, sign_name):
     dex_protected(dir_name, dex_num, path.join(dir_name, "Target/unknown"))
 
     # Step8: 将合并生成的新classes.dex文件与Target.modified.apk中的classes.dex替换
-    print '[+] Replace \"%s\" with \"classes.dex\"' % (extracted_dir + '/classes.dex',)
+    print('[+] Replace \"%s\" with \"classes.dex\"' % (extracted_dir + '/classes.dex',))
     shutil.copyfile('classes.dex', extracted_dir + '/classes.dex')
 
     # Step9: 复制TuokeApk/libs目录下的所有文件和文件夹到目标app中
@@ -373,16 +373,16 @@ def klab_protected(filepath, sign_name):
 
 
     # Step10: 将修改后的app重压缩成zip文件
-    print '[+] Compress %s folder into Target.modified.2.apk' % extracted_dir
+    print('[+] Compress %s folder into Target.modified.2.apk' % extracted_dir)
     # zip_dir(extracted_dir, 'Target.modified.2.apk')
     out = apk_utils.recompile_apk(extracted_dir, path.join(dir_name, 'Target.modified.2.apk'))
 
     if out:
-        print '[Error] apktool recompiled error!'
+        print('[Error] apktool recompiled error!')
         return
-    print '[+] Apktool recompiled Target successfully!'
+    print('[+] Apktool recompiled Target successfully!')
 
-    print '[+] Protected End...'
+    print('[+] Protected End...')
 
     return path.join(dir_name, 'Target.modified.2.apk')
 
@@ -411,9 +411,9 @@ def so_protected(filepath):
 
     os.chdir(path.dirname(extracted_dir));
     # Step10: 将修改后的app重压缩成zip文件
-    print '[+] Compress %s folder into Target.modified.2.apk' % extracted_dir
+    print('[+] Compress %s folder into Target.modified.2.apk' % extracted_dir)
     zip_dir(extracted_dir, 'Target.modified.2.apk')
 
-    print '[+] Protected End...'
+    print('[+] Protected End...')
 
     return path.join(dir_name, 'Target.modified.2.apk')

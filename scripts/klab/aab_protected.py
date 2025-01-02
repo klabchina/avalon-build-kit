@@ -16,7 +16,7 @@ from utils import file_utils
 from utils import aab_utils
 from utils import cli_utils
 import shutil
-import jiagu
+from klab import jiagu
 import zipfile
 
 """
@@ -53,14 +53,14 @@ def klab_aab_protected(filepath, config):
 
     ret = aab_utils.aab_modify_application(path.join(source_aab + "_files", "base/manifest/AndroidManifest.xml"), "org.hackcode.ProxyApplication")
     if ret:
-        print '[Error] aab modify error !'
+        print('[Error] aab modify error !')
         return
 
 
     # 孤岛进程加入
     ret = aab_utils.aab_add_service(path.join(source_aab + "_files", "base/manifest/AndroidManifest.xml"), "org.hackcode.service.IsolatedService")
     if ret:
-        print '[Error] aab service modify error !'
+        print('[Error] aab service modify error !')
         return
 
 

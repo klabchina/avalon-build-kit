@@ -6,7 +6,7 @@ from utils import apk_utils
 from utils import conf_utils
 from utils import cli_utils
 from click import secho
-from channel import Channel
+from packing.channel import Channel
 from packing import executor_manager
 import sys
 

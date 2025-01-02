@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 import os
-import apk_utils
+from utils import apk_utils
 from PIL import Image
 from PIL import ImageChops
 
