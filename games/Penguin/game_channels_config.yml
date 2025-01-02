@@ -1,0 +1,631 @@
+---
+# 这个游戏要打包的渠道配置
+# 全局插件配置,暂时没有,功能保留
+# global-plugins:
+#  -, name:
+#    desc:
+# channels 配置
+channels:
+  - id: '5'
+    name: txmsdk
+    sdk: txmsdk
+    platform_name: 'tencent'
+    desc: 腾讯应用宝(MSDK)
+    suffix: 'com.tencent.tmgp.penguin.youzhe'
+    splash: '0'
+    splash_copy_to_unity: '0'
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.3.8'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "WG_QQAPPID", name: "WG_QQAPPID", value: "1106461681" }
+      
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '1'
+    name: 'qihoosdk'
+    sdk: 'qihoosdk'
+    platform_name: 'qihoo'
+    desc: '奇虎360sdk'
+    suffix: '.qihoo'
+    splash: '0'
+    splash_copy_to_unity: '0'
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.0.0_608'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "QHOPENSDK_APPID", name: "QHOPENSDK_APPID", value: "203886186" }
+      - { desc: "QHOPENSDK_APPKEY", name: "QHOPENSDK_APPKEY", value: "b92f90ed070a5e14f86825d93bfca875" }
+      - { desc: "QHOPENSDK_PRIVATEKEY", name: "QHOPENSDK_PRIVATEKEY", value: "6d860afd2e9ea836c72f18fe584f9974" }
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '4'
+    name: 'baidusdk'
+    sdk: 'baidusdk'
+    platform_name: 'baidu'
+    desc: '百度sdk'
+    suffix: '.baidu'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.8.1'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "BAIDU_APPID", name: "BAIDU_APPID", value: "10485793" }
+      - { desc: "BAIDU_APPKEY", name: "BAIDU_APPKEY", value: "XLcPScFpflVDo4e5X2LDP1HU" }
+      - { desc: "AVALON_APPLICATION_PROXY_NAME", name: "AVALON_APPLICATION_PROXY_NAME", value: "com.platform.ubaidu.BaiduApplicationProxy" }
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+
+  - id: '3'
+    name: 'ucsdk'
+    sdk: 'ucsdk'
+    platform_name: 'uc'
+    desc: 'UC的SDK'
+    suffix: '.aligames'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '7.3.4.2'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "UC_APPID", name: "UC_APPID", value: "870543" }
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '2'
+    name: 'misdk'
+    sdk: 'misdk'
+    platform_name: 'xiaomi'
+    desc: '小米SDK'
+    suffix: '.mi'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.5.2_11051'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "MI_APPID", name: "MI_APPID", value: "2882303761517682200mi" }
+      - { desc: "MI_APPKEY", name: "MI_APPKEY", value: "5681768297200mi" }
+      - { desc: "proxy", name: "AVALON_APPLICATION_PROXY_NAME", value: "com.platform.umi.MiApplicationProxy" }
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+    #    
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '8'
+    name: 'huaweisdk'
+    sdk: 'huaweisdk'
+    platform_name: 'huawei'
+    desc: 'HAWEISDK'
+    suffix: '.huawei'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.6.0.301'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "appid", name: "com.huawei.hms.client.appid", value: "appid=100135481" }
+      - { desc: "payid", name: "com.huawei.hms.client.cpid", value: "cpid=890086000102058466" }
+     
+     
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '6'
+    name: 'vivosdk'
+    sdk: 'vivosdk'
+    platform_name: 'vivo'
+    desc: 'VIVOSDK'
+    suffix: '.vivo'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.2.41'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "vivoappid", name: "VIVO_APPID", value: "afb66e3bd7f6efcbd71a71f4fd25c363" }
+      - { desc: "proxy", name: "AVALON_APPLICATION_PROXY_NAME", value: "com.platform.uvivo.VIvoApplicationProxy" }
+
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '9'
+    name: 'coolpadsdk'
+    sdk: 'coolpadsdk'
+    platform_name: 'coolpad'
+    desc: 'COOLPADSDK'
+    suffix: '.coolpad'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.1.8'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "KUPAI_APPID", name: "KUPAI_APPID", value: "x5000009004" }
+
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '7'
+    name: 'opposdk'
+    sdk: 'opposdk'
+    platform_name: 'oppo'
+    desc: 'OPPOSDK'
+    suffix: '.nearme.gamecenter'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "oppoappkey", name: "app_key", value: "DpGbR8PCC1Kwo8cw4osw0gkkW" }
+
+
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '10'
+    name: 'mzsdk'
+    sdk: 'mzsdk'
+    platform_name: 'meizu'
+    desc: 'MZSDK'
+    suffix: '.mz'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '4.5.1'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "MEIZU_APPID", name: "MEIZU_APPID", value: "x3189720" }
+      - { desc: "MEIZU_APPKEY", name: "MEIZU_APPKEY", value: "ba80a3b686094a63bcd40cd7ae7e4bc3" }
+
+
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '14'
+    name: 'kuaikansdk'
+    sdk: 'kuaikansdk'
+    platform_name: 'kuaikan'
+    desc: '快看sdk'
+    suffix: '.kuaikan'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.2_0102'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "KANKAN_APPID", name: "KANKAN_APPID", value: "1110" }
+      - { desc: "proxy", name: "AVALON_APPLICATION_PROXY_NAME", value: "com.platform.ukankan.KuaiKanApplicationProxy" }
+
+
+
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '11'
+    name: 'lenovosdk'
+    sdk: 'lenovosdk'
+    platform_name: 'lenovo'
+    desc: 'LENOVOSDK'
+    suffix: '.lenovo'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.6.6'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "lenovo.open.appid", name: "lenovo.open.appid", value: "1711281260317.app.ln" }
+
+
+
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '12'
+    name: 'jlsdk'
+    sdk: 'jlsdk'
+    platform_name: 'gionee'
+    desc: 'JLSDK'
+    suffix: '.am'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '4.0.6'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "AM_APPKEY", name: "AM_APPKEY", value: "934127BDA611471BA5C66C23D4CC784A" }
+
+
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+
+  - id: '15'
+    name: 'bilibilisdk'
+    sdk: 'bilibilisdk'
+    platform_name: 'bilibili'
+    desc: 'bilibiliSDK'
+    suffix: '.bili'
+    splash: "1"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.6.9.4'
+    sdk-params:
+      - { desc: "APPID", name: "APPID", value: "x318" }
+      - { desc: "MERCHANT_ID", name: "MERCHANT_ID", value: "x95" }
+      - { desc: "SERVER_ID", name: "SERVER_ID", value: "x546" }
+      - { desc: "APPKEY", name: "APPKEY", value: "3bfc65d243c347028e5f1a747a85585e" }
+      - { desc: "SERVER_NAME", name: "SERVER_NAME", value: "bilibili" }
+
+  - id: '16'
+    name: 'meitusdk'
+    sdk: 'meitusdk'
+    platform_name: 'meitu'
+    desc: 'MEITUSDK'
+    suffix: '.meitu'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '4.0.6'
+    sdk-params:
+      - { desc: "MEITU_APPID", name: "MEITU_APPID", value: "2016867707" }
+      - { desc: "MEITU_APPKEY", name: "MEITU_APPKEY", value: "c9NpiDWcU6iJ0eO4iCF9" }
+      - { desc: "AVALON_APPLICATION_PROXY_NAME", name: "AVALON_APPLICATION_PROXY_NAME", value: "com.platform.umeitu.MeituApplicationProxy" }
+
+
+  - id: '4501'
+    name: 'official'
+    sdk: 'official'
+    platform_name: 'official'
+    desc: 'official'
+    suffix: '.official'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+
+
+  - id: '4501'
+    name: 'taptap'
+    sdk: 'official'
+    platform_name: 'taptap'
+    desc: 'official'
+    suffix: '.official'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+  - id: '4501'
+    name: 'mumu'
+    sdk: 'official'
+    platform_name: 'mumu'
+    desc: 'official'
+    suffix: '.official'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+  - id: '4501'
+    name: 'xinyou'
+    sdk: 'official'
+    platform_name: 'xinyou'
+    desc: 'official'
+    suffix: '.official'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+
+  - id: '4501'
+    name: 'dev1'
+    sdk: 'official'
+    platform_name: 'official'
+    desc: 'official'
+    suffix: '.dev1'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+  - id: '4501'
+    name: 'dev2'
+    sdk: 'official'
+    platform_name: 'official'
+    desc: 'official'
+    suffix: '.dev2'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+  - id: '4501'
+    name: 'dev3'
+    sdk: 'official'
+    platform_name: 'official'
+    desc: 'official'
+    suffix: '.dev3'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+
+
+  - id: '4501'
+    name: 'dev4'
+    sdk: 'official'
+    platform_name: 'official'
+    desc: 'official'
+    suffix: '.dev4'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+  - id: '4501'
+    name: 'dev5'
+    sdk: 'official'
+    platform_name: 'official'
+    desc: 'official'
+    suffix: '.dev5'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+  - id: '4501'
+    name: 'dev6'
+    sdk: 'official'
+    platform_name: 'official'
+    desc: 'official'
+    suffix: '.dev6'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+  - id: '4501'
+    name: 'haoyou'
+    sdk: 'official'
+    platform_name: 'haoyou'
+    desc: 'official'
+    suffix: '.official'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+  - id: '4501'
+    name: 'klabcps1'
+    sdk: 'official'
+    platform_name: 'klabcps1'
+    desc: 'official'
+    suffix: '.official'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+  - id: '4501'
+    name: 'klabcps2'
+    sdk: 'official'
+    platform_name: 'klabcps2'
+    desc: 'official'
+    suffix: '.official'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+
+
+  - id: '4501'
+    name: 'klabcps3'
+    sdk: 'official'
+    platform_name: 'klabcps3'
+    desc: 'official'
+    suffix: '.official'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+  - id: '4501'
+    name: 'klabcps4'
+    sdk: 'official'
+    platform_name: 'klabcps4'
+    desc: 'official'
+    suffix: '.official'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+
+
+  - id: '4501'
+    name: 'klabcps5'
+    sdk: 'official'
+    platform_name: 'klabcps5'
+    desc: 'official'
+    suffix: '.official'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+
+
+  - id: '4501'
+    name: 'klabcps6'
+    sdk: 'official'
+    platform_name: 'klabcps6'
+    desc: 'official'
+    suffix: '.official'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '1.0.0'
+    libHold:  'okhttp3|okio'
+    sdk-params:
+      - { desc: "wbappid", name: "wbappid", value: "1423501223" }
+      - { desc: "wbReUrl", name: "wbReUrl", value: "https://api.weibo.com/oauth2/default.html" }
+      - { desc: "wbScope", name: "wbScope", value: "email" }
+      - { desc: "wxAppid", name: "wxAppid", value: "wx3f63434024f04c81" }
+
+
+
+

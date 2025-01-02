@@ -1,0 +1,54 @@
+---
+# 所有游戏配置信息
+
+
+- appName: Lovelive
+  appID: '3'
+  appKey: 23448d9758c4f579dff775895d4b905a
+  appDesc: 校园偶像
+  # 游戏是横屏还是竖屏(landscape|portrait),不配置默认是横屏
+  orientation: landscape
+  cpuSupport: 'armeabi|armeabi-v7a'
+
+# 这个是示例
+- appName: baseball
+  appID: '4'
+  appKey: f32fdc02123a82524eb4ea95e1383d0b
+  appDesc: 捧球游戏
+  # 游戏是横屏还是竖屏(landscape|portrait),不配置默认是横屏
+  orientation: landscape
+  cpuSupport: 'armeabi|armeabi-v7a'
+
+- appName: Pazwon
+  appID: '5'
+  appKey: f32fdc02123a82524eb4ea95e1383d0b
+  appDesc: Pazwon中文版
+  # 游戏是横屏还是竖屏(landscape|portrait),不配置默认是横屏
+  orientation: portrait
+  cpuSupport: 'armeabi|armeabi-v7a|mips|mips64|x86|x86_64'
+
+- appName: Penguin
+  appID: '1'
+  appKey: 18104782579bf20949e78a31bc5a6a62
+  appDesc: Penguin中文版
+  # 游戏是横屏还是竖屏(landscape|portrait),不配置默认是横屏
+  orientation: landscape
+  cpuSupport: 'armeabi|armeabi-v7a|mips|mips64|x86|x86_64'
+
+
+- appName: AvalonExample
+  appID: '6'
+  appKey: 18104782579bf20949e78a31bc5a6a62
+  appDesc: Avalon示例
+  # 游戏是横屏还是竖屏(landscape|portrait),不配置默认是横屏
+  orientation: portrait
+  cpuSupport: 'armeabi|armeabi-v7a|arm64-v8a'
+
+
+- appName: Bleach
+  appID: '2'
+  appKey: 18104782579bf20949e78a31bc5a6a62
+  appDesc: bleach
+  # 游戏是横屏还是竖屏(landscape|portrait),不配置默认是横屏
+  orientation: landscape
+  cpuSupport: 'armeabi|armeabi-v7a|arm64-v8a'

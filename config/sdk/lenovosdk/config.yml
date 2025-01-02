@@ -1,0 +1,20 @@
+---
+params: 
+  - { name: "lenovo.open.appid", required: "1", showName: "LENOVO_APPID", desc: "LENOVO的APPID", bWriteInManifest: "1", bWriteInClient: "0"  }
+
+operations: 
+  - { step: "1", type: "mergeManifest", from: "SDKManifest.xml", to: "AndroidManifest.xml"  }
+  - { step: "2", type: "copyRes", from: "assets", to: "assets"  }
+  - { step: "3", type: "copyRes", from: "libs", to: "lib"  }
+  - { step: "4", type: "copyRes", from: "res", to: "res"  }
+
+plugins:
+  - { name: "com.platform.ulenovo.PlatFormLenovo", type: "1", desc: "LENOVO的用户登录接口" }
+  - { name: "com.platform.ulenovo.PlatFormLenovoPay", type: "2", desc: "LENOVO的用户支付接口" }
+
+sdkVersionCode:  "1"
+sdkVersionName:  "3.6.3"
+
+
+sdkAPK: "SDKLenovo.apk"
+sdkPlatformName: "lenovo"

@@ -1,0 +1,21 @@
+---
+params: 
+  - { name: "BAIDU_APPID", required: "1", showName: "BAIDU_APPID", desc: "百度APPID", bWriteInManifest: "1", bWriteInClient: "0"  }
+  - { name: "BAIDU_APPKEY", required: "1", showName: "BAIDU_APPKEY", desc: "百度APP KEY", bWriteInManifest: "1", bWriteInClient: "0"  }
+  - { name: "AVALON_APPLICATION_PROXY_NAME", required: "1", showName: "AVALON_APPLICATION_PROXY_NAME", desc: "百度ApplicationProxy", bWriteInManifest: "1", bWriteInClient: "0"  }
+
+operations: 
+  - { step: "1", type: "mergeManifest", from: "SDKManifest.xml", to: "AndroidManifest.xml"  }
+  - { step: "2", type: "copyRes", from: "assets", to: "assets"  }
+  - { step: "3", type: "copyRes", from: "libs", to: "lib"  }
+  - { step: "4", type: "copyRes", from: "res", to: "res"  }
+
+plugins:
+  - { name: "com.platform.ubaidu.PlatFormBaidu", type: "1", desc: "用户登录接口" }
+  - { name: "com.platform.ubaidu.PlatFormBaiduPay", type: "2", desc: "用户支付接口" }
+
+sdkVersionCode:  "1"
+sdkVersionName:  "3.7.4"
+
+sdkAPK: "baidu.apk"
+sdkPlatformName: "baidu"

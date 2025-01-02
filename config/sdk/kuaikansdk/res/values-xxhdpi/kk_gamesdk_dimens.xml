@@ -1,0 +1,13 @@
+<resources>
+    <dimen name="kk_gamesdk_update_dialog_width">320dp</dimen>
+    <dimen name="kk_gamesdk_update_dialog_height">400dp</dimen>
+    <dimen name="kk_gamesdk_common_padding_big">22.5dp</dimen>
+    <dimen name="kk_gamesdk_common_padding_medium">25dp</dimen>
+    <dimen name="kk_gamesdk_common_padding">15dp</dimen>
+    <dimen name="kk_gamesdk_common_padding_real_name_title">12.5dp</dimen>
+    <dimen name="kk_gamesdk_common_padding_small">5.6dp</dimen>
+    <dimen name="kk_gamesdk_common_text_size_big">18.7sp</dimen>
+    <dimen name="kk_gamesdk_common_text_size">18sp</dimen>
+    <dimen name="kk_gamesdk_common_text_size_small">14sp</dimen>
+    <dimen name="kk_gamesdk_common_text_size_tiny">11sp</dimen>
+</resources>

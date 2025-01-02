@@ -1,0 +1,10 @@
+.idea/
+*.pyc
+workspace/*
+output/*
+config/apk_protected_klab/TuokeApk/app/build/*
+
+**/.gradle/*
+ */local.properties
+**/build/*
+**/bin/*

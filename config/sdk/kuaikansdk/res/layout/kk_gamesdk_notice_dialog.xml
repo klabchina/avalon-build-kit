@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="290dp"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/kk_gamesdk_text_notice_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/kk_gamesdk_bg_update_dialog_title"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/kk_gamesdk_common_padding_big"
+        android:text="@string/kk_gamesdk_notice_dialog_title"
+        android:textColor="@color/kk_gamesdk_color_G0"
+        android:textSize="@dimen/kk_gamesdk_common_text_size" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/kk_gamesdk_bg_update_dialog_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/kk_gamesdk_common_padding_big"
+        android:paddingRight="@dimen/kk_gamesdk_common_padding_big">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/kk_gamesdk_text_notice_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/kk_gamesdk_common_padding"
+                android:focusable="true"
+                android:lineSpacingExtra="3sp"
+                android:textColor="@color/kk_gamesdk_color_G1"
+                android:textSize="@dimen/kk_gamesdk_common_text_size_small"
+                tools:text="比肩《阿凡达》动作捕捉技术的“中国创造”高科技来了！它为众多大片提供技术支持，无场景限制、能实现精准捕捉，让大片预演难度成本大幅降低。它让《寻龙诀》里胡八一梦中盗墓、《权力的游戏》里尸鬼大战野人的场景更加真实宏大。它还在动捕技术的基础上实现多人VR,让你的眼睛、身体都能进入虚拟世界，并能在虚拟现实中进行社交。新浪新闻GOOD TECH系列直播带您一同体验动作捕捉黑科技，领略多人VR带来沉浸式体验的快感。欢迎大家到直播间或@升级中国 参与留言互动。" />
+
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/kk_gamesdk_btn_confirm"
+            android:layout_width="100dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="@dimen/kk_gamesdk_common_padding_medium"
+            android:layout_marginTop="@dimen/kk_gamesdk_common_padding"
+            android:background="@drawable/kk_gamesdk_bg_yellow"
+            android:gravity="center"
+            android:text="@string/kk_gamesdk_notice_confirm"
+            android:textColor="@color/kk_gamesdk_color_G0"
+            android:textSize="@dimen/kk_gamesdk_common_text_size" />
+    </LinearLayout>
+
+
+</LinearLayout>

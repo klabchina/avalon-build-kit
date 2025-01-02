@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <permissionConfig>
+       <!-- 添加360SDK必需要的权限。begin -->
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+        <uses-permission android:name="android.webkit.permission.PLUGIN" />
+        <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+        <uses-permission android:name="android.permission.WAKE_LOCK" />
+        <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+        <uses-permission android:name="android.permission.VIBRATE" />
+        <uses-permission android:name="android.permission.FLASHLIGHT" />
+        <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+        <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />
+        <uses-permission android:name="android.permission.READ_LOGS" />
+        <uses-permission android:name="android.permission.BIND_JOB_SERVICE" />
+        <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+        <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+        <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+        <!-- 运营商一键登录权限 -->
+        <uses-permission android:name="android.permission.GET_TASKS" />
+        <uses-permission android:name="com.asus.msa.SupplementaryDID.ACCESS" />
+        <uses-permission android:name="android.permission.WRITE_SETTINGS" tools:ignore="ProtectedPermissions" />
+    <!-- 添加360SDK必需要的权限。end  -->
+    </permissionConfig>
+
+    <applicationConfig>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
+        <!-- 添加360SDK必需的activity：com.qihoo.gamecenter.sdk.activity.ContainerActivity -->
+        <activity
+            android:name="com.qihoo.gamecenter.sdk.activity.ContainerActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode|layoutDirection"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true">
+            <!-- 支付宝签约后自动跳转到sdk配置 -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- android host的值必须为游戏的包名 -->
+                <data android:host="{packagename}"/>
+                <!-- android scheme的值必须不能变-->
+                <data android:scheme="qihooonlinepay" />
+            </intent-filter>
+        </activity>
+
+        <!-- payment activities begin -->
+        <!--添加360SDK必需的activity：com.qihoopp.qcoinpay.QcoinActivity -->
+        <activity
+            android:name="com.qihoopp.qcoinpay.QcoinActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
+        </activity>
+        <!--alipay sdk begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!--alipay sdk end -->
+
+        <!-- 微信支付界面-->
+        <!-- 汇付宝SDK 需添加 -->
+        <activity
+            android:name="com.heepay.plugin.activity.HyNotityActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <!-- 以下Activity是SDK插件化使用的代理Activity -->
+        <activity
+            android:name="com.qihoo.sdkplugging.host.activity.HostProxyActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode|layoutDirection"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="adjustPan"
+            android:label="360SDK" >
+            <intent-filter>
+                <action android:name="com.qihoo.sdkplugging.host.proxy.activity.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- payment activities end -->
+
+        <!-- 以下是360游戏新版本实时推送PUSH SDK声明，除了标红的，其他不可修改 -->
+        <service
+            android:name="com.qihoo.pushsdk.cx.PushService"
+            android:exported="false"
+            android:process=":PushClient">
+        </service>
+        <service
+            android:name="com.qihoo.pushsdk.cx.PushService$InnerService"
+            android:exported="false"
+            android:process=":PushClient"/>
+        <service
+            android:name="com.qihoo.pushsdk.keepalive.PushJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+        <service android:name="com.qihoo.pushsdk.cx.PushLocalService"/>
+
+        <service
+            android:name="com.qihoo.pushsdk.keepalive.NotificationService"
+            android:exported="false"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name="com.qihoo.pushsdk.keepalive.PushWakeUpReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <action android:name="android.intent.action.SIG_STR" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.qihoo.pushsdk.QPushHandleService" />
+        <!-- push sdk 新增 必须是包名 -->
+        <provider
+            android:name="com.qihoo.pushsdk.sphelper.SPContentProvider"
+            android:authorities="{packagename}.sdk.sp.helper"
+            android:exported="false"
+            android:process=":PushClient" />
+        <service android:name="com.qihoo.qpush.report.network.SurvivalService" />
+        <receiver
+            android:name="com.qihoo.pushsdk.QPushMessageReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.qihoo.qpush.INFO_RECEIVE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 360游戏新版本实时推送PUSH SDK声明 end -->
+
+        <service
+            android:name="com.qihoo360.qos.QosService"
+            android:exported="false"
+            android:process=":qos" >
+            <intent-filter>
+                <action android:name="com.qihoo360.qos.QosService" />
+            </intent-filter>
+        </service>
+        <!-- 移动运营商登录activity -->
+        <activity
+            android:name="com.cmic.sso.sdk.activity.LoginAuthActivity"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/cmTheme"/>
+
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true" />
+
+        <!-- UpdateLib start -->
+        <activity android:name="com.qihoo.updatesdk.lib.UpdateTipDialogActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service
+            android:name="com.qihoo.appstore.updatelib.CheckUpdateService"
+            android:exported="false" />
+        <!-- UpdateLib end -->
+
+        <!-- 360 sdk 内部 service、activity start -->
+        <service
+            android:name="com.qihoo.sdkplugging.host.service.CommonHostProxyService"
+            android:persistent="true"
+            android:process= ":gcpasremote">
+            <intent-filter>
+                <action android:name="com.qihoo.sdkplugging.host.service.CommonHostProxyService"/>
+            </intent-filter>
+        </service>
+        <!-- 360 sdk 内部 service、activity end -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="{packagename}.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"
+                tools:replace="android:resource" />
+        </provider>
+        <!-- 应用内拦截下载，执行下载的service  start  -->
+        <service android:name="com.qihoo.gamecenter.sdk.hook.DownloadService"
+            android:launchMode="singleTask"></service>
+        <!-- 应用内拦截下载，执行下载的service  end   -->
+
+        <!-- 默认参数，不需要修改，直接复制就行 -->
+        <meta-data android:name="DC_APPKEY" android:value="02522a2b2726fb0a03bb19f2d8d9524d"/>
+        <meta-data android:name="APP_KEY" android:value="n7a5gpvhzkny" />
+        <meta-data android:name="APP_SECRET" android:value="ggm5oqotrjs8spkgwk5qjw5447bj7zl5" />
+    </applicationConfig>
+
+</manifest>

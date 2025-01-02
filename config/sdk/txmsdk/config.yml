@@ -1,0 +1,19 @@
+---
+params:
+  - { name: "WG_QQAPPID", required: "1",showName: "QQAppID",desc: "应用宝", bWriteInManifest: "1", bWriteInClient: "1" }
+
+operations:
+  - { step: "1", type: "mergeManifest", from: "SDKManifest.xml", to: "AndroidManifest.xml" }
+  - { step: "2", type: "copyRes", from: "assets", to: "assets" }
+  - { step: "3", type: "copyRes", from: "libs", to: "lib" }
+  - { step: "4", type: "copyRes", from: "res", to: "res" }
+    
+plugins:
+  - { name: "com.platform.utencent.PlatFormTencent", type: "1", desc: "用户登录接口" }
+  - { name: "com.platform.utencent.PlatFormTencentPay", type: "2", desc: "用户支付接口" }
+
+sdkVersionCode: "1"
+sdkVersionName: "2.8.1"
+
+sdkAPK: "SDKTencent.apk"
+sdkPlatformName: "tencent"

@@ -1,0 +1,7 @@
+<resources>
+    <string name="kk_gamesdk_downloader_error_code_other">好像有点问题哦！待会再试试吧～+_+</string>
+    <string name="kk_gamesdk_downloader_fav_delete_submit">确定</string>
+    <string name="kk_gamesdk_downloader_fav_delete_cancel">取消</string>
+    <string name="kk_gamesdk_downloader_continue_download_confirm">当前正在使用流量访问，是否继续下载？</string>
+    <string name="kk_gamesdk_downloader_downloader_started">开始下载：%s</string>
+</resources>

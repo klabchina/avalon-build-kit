@@ -1,0 +1,13 @@
+---
+params:
+  - { name: UMENG_APPKEY, value: "54a0e798fd98c56c8000077f", required: "1", showName: "AppKey",
+  desc: "友盟分析统计", bWriteInManifest: "1", bWriteInClient: "0" }
+  - { name: UMENG_MESSAGE_SECRET, value: "7ad1b8288b3afa47616cf1dfc3ee9987", required: "1", showName: "渠道号（通过自定义脚本，动态设置为渠道名称）",
+  desc: "友盟分析统计", bWriteInManifest: "1", bWriteInClient: "0" }
+
+operations:
+  - { step: "1", type: "mergeManifest", from: "SDKManifest.xml", to: "AndroidManifest.xml" }
+  - { step: "5", type: "script", from: "script.py" }
+
+plugins:
+  - { name: "com.avalon.sdk.UMengPush", type: "3", desc: "推送接口"}

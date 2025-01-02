@@ -1,0 +1,19 @@
+---
+params: 
+  - { name: "app_key", required: "1", showName: "APPKEY", desc: "APPKEY", bWriteInManifest: "1", bWriteInClient: "0"  }
+
+operations: 
+  - { step: "1", type: "mergeManifest", from: "SDKManifest.xml", to: "AndroidManifest.xml"  }
+  - { step: "2", type: "copyRes", from: "assets", to: "assets"  }
+  - { step: "3", type: "copyRes", from: "libs", to: "lib"  }
+  - { step: "4", type: "copyRes", from: "res", to: "res"  }
+
+plugins:
+  - { name: "com.platform.uoppo.PlatFormOppo", type: "1", desc: "Oppo的用户登录接口" }
+  - { name: "com.platform.uoppo.PlatFormOppoPay", type: "2", desc: "Oppo的用户支付接口" }
+
+sdkVersionCode:  "1"
+sdkVersionName:  "3.6.3"
+
+sdkAPK: "SDKOppo.apk"
+sdkPlatformName: "oppo"

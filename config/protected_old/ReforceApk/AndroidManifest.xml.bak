@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.avalon.sdk.test"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <application
+        android:allowBackup="true"
+        android:largeHeap="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:name="com.example.reforceapk.ProxyApplication">
+        
+        <meta-data android:name="APPLICATION_CLASS_NAME" android:value="com.avalon.sdk.AvalonSDKApplication"/>
+        
+    </application>
+
+</manifest>

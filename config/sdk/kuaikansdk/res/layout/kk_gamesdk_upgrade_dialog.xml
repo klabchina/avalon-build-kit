@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="290dp"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/kk_gamesdk_bg_update_dialog_title"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/kk_gamesdk_common_padding_big">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/kk_gamesdk_update_dialog_title"
+            android:textColor="@color/kk_gamesdk_color_G0"
+            android:textSize="@dimen/kk_gamesdk_common_text_size" />
+
+        <ImageView
+            android:id="@+id/kk_gamesdk_btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/kk_gamesdk_ic_update_dialog_delete"
+            android:clickable="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/kk_gamesdk_bg_update_dialog_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/kk_gamesdk_common_padding_big"
+        android:paddingRight="@dimen/kk_gamesdk_common_padding_big">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/kk_gamesdk_text_version_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/kk_gamesdk_common_padding_medium"
+                    android:textColor="@color/kk_gamesdk_color_G0"
+                    android:textSize="@dimen/kk_gamesdk_common_text_size_small"
+                    tools:text="版本大小：265M" />
+
+                <TextView
+                    android:id="@+id/kk_gamesdk_text_update_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/kk_gamesdk_common_padding_small"
+                    android:focusable="true"
+                    android:lineSpacingExtra="3sp"
+                    android:textColor="@color/kk_gamesdk_color_G1"
+                    android:textSize="@dimen/kk_gamesdk_common_text_size_small"
+                    tools:text="这将是一次与众不同的版本更新。\n个人中心拥有了全新的面孔，\n与此同时，\n你所熟悉的老作品，你期待的新作品" />
+            </LinearLayout>
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/kk_gamesdk_btn_update"
+            android:layout_width="110dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="@dimen/kk_gamesdk_common_padding_medium"
+            android:layout_marginTop="@dimen/kk_gamesdk_common_padding"
+            android:background="@drawable/kk_gamesdk_bg_yellow"
+            android:gravity="center"
+            android:text="@string/kk_gamesdk_update_confirm"
+            android:textColor="@color/kk_gamesdk_color_G0"
+            android:textSize="@dimen/kk_gamesdk_common_text_size" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="kk_gamesdk_downloader_download_notification_text_array">
+        <item>正在下载,请稍候...</item>
+        <item>已暂停,点击继续</item>
+        <item>下载完成,点击打开</item>
+        <item>下载异常,点击继续</item>
+        <item>下载失败,点击重试</item>
+        <item>下载失败,存储空间不足</item>
+    </string-array>
+</resources>

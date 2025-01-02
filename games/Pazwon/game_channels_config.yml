@@ -1,0 +1,165 @@
+---
+# 这个游戏要打包的渠道配置
+# 全局插件配置,暂时没有,功能保留
+# global-plugins:
+#  -, name:
+#    desc:
+# channels 配置
+channels:
+  - id: '35'
+    name: txmsdk
+    sdk: txmsdk
+    desc: 腾讯应用宝(MSDK)
+    suffix: 'com.tencent.tmgp.lovefires.player'
+    splash: '0'
+    splash_copy_to_unity: '0'
+    icon: 'rb'
+    sdk-params:
+      - { desc: QQAppID, name: WG_QQAPPID, value: "1104556695" }
+      - { desc: QQAppKey, name: WG_QQAPPKEY, value: DDebGjkcpZzO4GEM }
+      - { desc: 微信AppID, name: WG_WXAPPID, value: wx07dc001b46d4092c }
+      - { desc: 微信AppKey, name: WG_MSDKKEY, value: c4cb80dd6384274aa6f3e4d1b524087c }
+      - { desc: 'OfferId,一般就是QQ AppId', name: WG_OFFERID, value: "1104556695" }
+      - { desc: "test(测试环境)|release(正式环境)", name: WG_ENV, value: test }
+      - { desc: "是否开启日志 true|false", name: WG_DEBUG_MODE, value: "true" }
+      - { desc: "是否定额支付 true|false", name: WG_FIXEDPAY, value: "true" }
+      - { desc: "支付界面游戏币Icon名称，drawable资源目录下的文件名称，不带后缀", name: WG_COIN_ICON_NAME, value: coin_icon }
+      - { desc: "true|false", name: WG_MULTI_SERVERS, value: "false" }
+      - { desc: "sdk server 处理查询充值逻辑的地址", name: WG_PAY_URL, value: "http://192.168.18.9:8080/pay/txmsdk/charge" }
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.8.1'
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '16'
+    name: 'qihoosdk'
+    sdk: 'qihoosdk'
+    desc: '奇虎360sdk'
+    suffix: '.qihoo'
+    splash: '0'
+    splash_copy_to_unity: '0'
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.8.1'
+    sdk-params:
+      - { desc: "IsDisplayCloseBtn", name: "IsDisplayCloseBtn", value: "false" }
+      - { desc: "IsSupportOffline", name: "IsSupportOffline", value: "false" }
+      - { desc: "IsShowSwitchBtn", name: "IsShowSwitchBtn", value: "false" }
+      - { desc: "IsHiddenWelcome", name: "IsHiddenWelcome", value: "false" }
+      - { desc: "UiBackgroundPicPath", name: "UiBackgroundPicPath", value: "" }
+      - { desc: "UiBackgroundPathInAssets", name: "UiBackgroundPathInAssets", value: "" }
+      - { desc: "IsNeedActivationCode", name: "IsNeedActivationCode", value: "false" }
+      - { desc: "IsShowDlgOnFailedAutoLogin", name: "IsShowDlgOnFailedAutoLogin", value: "false" }
+      - { desc: "IsDebugSocialShare", name: "IsDebugSocialShare", value: "false" }
+      - { desc: "IsAutoLoginHideUI", name: "IsAutoLoginHideUI", value: "false" }
+      - { desc: "QHOPENSDK_APPID", name: "QHOPENSDK_APPID", value: "203591341" }
+      - { desc: "QHOPENSDK_APPKEY", name: "QHOPENSDK_APPKEY", value: "30e52ae475d130c0662d9297763be8df" }
+      - { desc: "QHOPENSDK_PRIVATEKEY", name: "QHOPENSDK_PRIVATEKEY", value: "d57bd03f6c4737ad31488fee723d0b5e" }
+      - { desc: "QHOPENSDK_WEIXIN_APPID", name: "QHOPENSDK_WEIXIN_APPID", value: "wx4e203f3fdd2d4a15" }
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '17'
+    name: 'baidusdk'
+    sdk: 'baidusdk'
+    desc: '百度sdk'
+    suffix: 'com.tencent.tmgp.lovefires.player'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.8.1'
+    sdk-params:
+      - { desc: "BAIDU_APPID", name: "BAIDU_APPID", value: "8371598" }
+      - { desc: "BAIDU_APPKEY", name: "BAIDU_APPKEY", value: "tdqZxFw7Obq4UWiaQGQKvHV1LtOPkKBu" }
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+
+  - id: '10'
+    name: 'ucsdk'
+    sdk: 'ucsdk'
+    desc: 'UC的SDK'
+    suffix: '.aligames'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.8.1'
+    sdk-params:
+      - { desc: "UC_APPID", name: "UC_APPID", value: "814310" }
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '17'
+    name: 'misdk'
+    sdk: 'misdk'
+    desc: '小米SDK'
+    suffix: '.mi'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.8.1'
+    sdk-params:
+      - { desc: "MI_APPID", name: "MI_APPID", value: "2882303761517584350mi" }
+      - { desc: "MI_APPKEY", name: "MI_APPKEY", value: "5781758461350mi" }
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '20'
+    name: 'opposdk'
+    sdk: 'opposdk'
+    desc: 'OppoSDK'
+    suffix: '.oppo'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.8.1'
+    sdk-params:
+      - { desc: "日志开关", name: "debug_mode", value: "true" }
+      - { desc: "是否为单机游戏", name: "is_offline_game", value: "false" }
+      - { desc: "APP_KEY", name: "app_key", value: "c5217trjnrmU6gO5jG8VvUFU0" }
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '21'
+    name: 'huaweisdk'
+    sdk: 'huaweisdk'
+    desc: 'HAWEISDK'
+    suffix: '.huawei'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.8.1'
+    sdk-params:
+      - { desc: "日志开关", name: "debug_mode", value: "true" }
+      
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1
+  - id: '22'
+    name: 'vivosdk'
+    sdk: 'vivosdk'
+    desc: 'VIVOSDK'
+    suffix: '.vivo'
+    splash: "0"
+    splash_copy_to_unity: "0"
+    icon: 'rb'
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.8.1'
+    sdk-params:
+      - { desc: "vivoappid", name: "VIVO_APPID", value: "b1002c" }
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  -, name: 1
+    #    desc: 1

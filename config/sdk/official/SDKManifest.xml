@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <permissionConfig>
+         <uses-permission android:name="android.permission.INTERNET" />
+         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+         <uses-permission android:name="com.android.vending.BILLING" />
+         <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+         <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        
+         <uses-permission android:name="android.permission.GET_TASKS" />
+         <uses-permission android:name="android.permission.VIBRATE" />
+         <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+         <!-- bulgy -->
+         <uses-permission android:name="android.permission.READ_LOGS" />
+         <!-- alipay -->
+         <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    </permissionConfig>
+
+    <applicationConfig>
+        <activity android:name=".wxapi.WXEntryActivity" 
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="true" 
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+        <activity android:name=".wxapi.WXPayEntryActivity" 
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="true" 
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+
+         <activity
+              android:name="com.alipay.sdk.app.H5PayActivity"
+              android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+              android:exported="false"
+              android:screenOrientation="behind"
+              android:windowSoftInputMode="adjustResize|stateHidden" >
+          </activity>
+           <activity
+              android:name="com.alipay.sdk.app.H5AuthActivity"
+              android:configChanges="orientation|keyboardHidden|navigation"
+              android:exported="false"
+              android:screenOrientation="behind"
+              android:windowSoftInputMode="adjustResize|stateHidden" >
+          </activity>
+
+           <activity
+            android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sina.weibo.sdk.share.WbShareToStoryActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_STORY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </applicationConfig>
+
+</manifest>

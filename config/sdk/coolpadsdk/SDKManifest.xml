@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <permissionConfig>
+        <!-- 数据网络相关权限 该权限主要用于网络请求-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> 
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> 
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<!-- 接收短信权限 ，该权限主要用于注册账户或者通过手机验证码修改密码等--> 
+    <uses-permission android:name="android.permission.RECEIVE_SMS" /> 
+    <uses-permission android:name="android.permission.SEND_SMS" />
+<!-- SD卡操作权限 该权限主要用于读写外部存储区上缓存的文件和数据--> 
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /> 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<!-- 系统设置操作权限 该权限主要用于读取系统登录的配置信息--> 
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" /> 
+    <uses-permission android:name="android.permission.READ_SETTINGS" />
+    <!-- 漂浮窗，游戏助手漂浮窗特性，如果游戏应用需要打开游戏助手，那么请配置该权限--> 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    </permissionConfig>
+
+    <applicationConfig>
+
+        <activity android:name="com.coolcloud.uac.android.api.view.AssistActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" > </activity>
+        
+        <activity android:name="com.coolcloud.uac.android.api.view.FindpwdActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" ></activity>
+
+        <activity android:name="com.coolcloud.uac.android.api.view.LoginActivity" android:configChanges="orientation|screenSize" android:screenOrientation="landscape" android:theme="@android:style/Theme.Translucent.NoTitleBar" ></activity>
+        
+        <activity android:name="com.coolcloud.uac.android.api.view.OAuth2Activity" android:configChanges="orientation|screenSize" android:screenOrientation="landscape" android:theme="@android:style/Theme.Translucent.NoTitleBar" ></activity>
+        
+        <activity android:name="com.coolcloud.uac.android.api.view.RegisterActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" > </activity>
+    
+        <activity android:name="com.coolcloud.uac.android.api.view.RnaDialogActivity" android:theme="@style/CoolcloudUacActivityStyle"></activity>
+
+        <activity android:name="com.coolcloud.uac.android.gameassistplug.GameAssistContentActivity" android:launchMode="singleInstance" android:theme="@android:style/Theme.Translucent.NoTitleBar" ></activity>
+
+        <activity android:name="com.coolcloud.uac.android.gameassistplug.GameAssistMessageActivity" android:launchMode="singleInstance" android:theme="@android:style/Theme.Translucent.NoTitleBar" ></activity>
+    
+        <activity android:name="com.coolcloud.uac.android.gameassistplug.GameAssistMsgListActivity" android:launchMode="singleInstance" android:theme="@android:style/Theme.Translucent.NoTitleBar" ></activity>
+        
+        <service android:name="com.coolcloud.uac.android.gameassistplug.message.AssistMsgService" ></service >
+        
+        <!-- 酷派支付检测 -->
+        <activity
+            android:name="com.yulong.android.paysdk.CheckStatusActivity"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <!-- 酷派支付下载服务 -->
+        <service android:name="com.yulong.android.paysdk.DownloadService" />
+        <service android:name="com.yulong.android.paysdk.CoolService" >
+        </service>
+        
+        <receiver android:name="com.coolcloud.uac.android.common.LoginStatusReceiver">
+            <intent-filter>
+                <action android:name="com.coolcloud.uac.LOGOUT" />
+            </intent-filter>
+        </receiver>
+    </applicationConfig>
+
+</manifest>

@@ -1,0 +1,24 @@
+---
+params: 
+  - { name: "APPID", required: "1", showName: "APPID", desc: "BILIBILI APPID", bWriteInManifest: "1", bWriteInClient: "0"  }
+  - { name: "MERCHANT_ID", required: "1", showName: "MERCHANT_ID", desc: "商户id", bWriteInManifest: "1", bWriteInClient: "0"  }
+  - { name: "SERVER_ID", required: "1", showName: "SERVER_ID", desc: "分配的serverid", bWriteInManifest: "1", bWriteInClient: "0"  }
+  - { name: "APPKEY", required: "1", showName: "APPKEY", desc: "APPKEY", bWriteInManifest: "1", bWriteInClient: "0"  }
+  - { name: "SERVER_NAME", required: "1", showName: "SERVER_NAME", desc: "SERVER_NAME", bWriteInManifest: "1", bWriteInClient: "0"  }
+
+operations: 
+  - { step: "1", type: "mergeManifest", from: "SDKManifest.xml", to: "AndroidManifest.xml"  }
+  - { step: "2", type: "copyRes", from: "assets", to: "assets"  }
+  - { step: "3", type: "copyRes", from: "libs", to: "lib"  }
+  - { step: "4", type: "copyRes", from: "res", to: "res"  }
+
+plugins:
+  - { name: "com.platform.pbilibili.PlatFormBili", type: "1", desc: "bilibili的用户登录接口" }
+  - { name: "com.platform.pbilibili.PlatFormBiliPay", type: "2", desc: "bilibili的用户支付接口" }
+
+sdkVersionCode:  "1"
+sdkVersionName:  "3.6.3"
+
+
+sdkAPK: "SDKBiliBili.apk"
+sdkPlatformName: "bilibili"

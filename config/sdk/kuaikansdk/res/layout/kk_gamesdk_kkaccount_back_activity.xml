@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/kk_gamesdk_color_transparent">
+
+    <LinearLayout
+        android:layout_width="@dimen/kk_gamesdk_dimens_resume_kkaccount_width"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/kk_gamesdk_background">
+
+        <ImageView
+            android:id="@+id/kk_gamesdk_kkaccount_avatar"
+            android:layout_width="@dimen/kk_gamesdk_dimens_resume_kkaccount_avatar_size"
+            android:layout_height="@dimen/kk_gamesdk_dimens_resume_kkaccount_avatar_size"
+            android:layout_marginLeft="@dimen/kk_gamesdk_dimens_resume_kkaccount_desc_left_margin"
+            android:background="@drawable/kk_gamesdk_ic_launcher"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/kk_gamesdk_kkaccount_back_desc"
+            android:layout_width="@dimen/kk_gamesdk_dimens_resume_kkaccount_desc_width"
+            android:layout_height="@dimen/kk_gamesdk_dimens_resume_kkaccount_desc_height"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/kk_gamesdk_dimens_resume_kkaccount_desc_left_margin"
+            android:text="@string/kk_gamesdk_kkaccount_back_desc"
+            android:textSize="12sp"
+            android:textColor="@color/kk_gamesdk_color_FF000000"
+            android:singleLine="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/kk_gamesdk_switch_kkaccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/kk_gamesdk_dimens_resume_kkaccount_switch_left_margin"
+            android:layout_marginRight="@dimen/kk_gamesdk_dimens_resume_kkaccount_switch_right_margin"
+            android:text="@string/kk_gamesdk_switch_kkaccount"
+            android:textColor="@color/kk_gamesdk_color_FF8A95B1"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+</RelativeLayout>

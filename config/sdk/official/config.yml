@@ -1,0 +1,22 @@
+---
+params: 
+  - { name: "wbappid", required: "1", showName: "WBAPPKEY", desc: "wbAPPKEY", bWriteInManifest: "1", bWriteInClient: "0"  }
+  - { name: "wbReUrl", required: "1", showName: "WBREURL", desc: "WBREURL", bWriteInManifest: "1", bWriteInClient: "0"  }
+  - { name: "wbScope", required: "1", showName: "WBSCOPE", desc: "WBSCOPE", bWriteInManifest: "1", bWriteInClient: "0"  }
+  - { name: "wxAppid", required: "1", showName: "WXAPPID", desc: "wxAppid", bWriteInManifest: "1", bWriteInClient: "0"  }
+
+operations: 
+  - { step: "1", type: "mergeManifest", from: "SDKManifest.xml", to: "AndroidManifest.xml"  }
+  - { step: "2", type: "copyRes", from: "libs", to: "lib"  }
+  - { step: "3", type: "copyRes", from: "res", to: "res"  }
+  - { step: "4", type: "copyRes", from: "assets", to: "assets"  }
+
+plugins:
+  - { name: "com.platform.uofficial.PlatFormOfficial", type: "1", desc: "官方包的用户登录接口" }
+  - { name: "com.platform.uofficial.PlatFormOfficialPay", type: "2", desc: "官方包的用户支付接口" }
+
+sdkVersionCode:  "1"
+sdkVersionName:  "3.6.3"
+
+sdkAPK: "OFFICIAL.apk"
+sdkPlatformName: "official"

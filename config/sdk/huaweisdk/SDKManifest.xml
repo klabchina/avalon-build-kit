@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <permissionConfig>
+        <!--HMS-SDK引导升级HMS功能，访问OTA服务器需要网络权限-->
+        <uses-permission android:name="android.permission.INTERNET" />
+        <!--HMS-SDK引导升级HMS功能，保存下载的升级包需要SD卡写权限-->
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <!--检测网络状态-->
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+        <!--检测wifi状态-->
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+        <!--为了获取用户手机的IMEI，用来唯一的标识用户。-->
+        <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+        <!-- Android O版本调用安装需要使用该权限 -->
+        <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+
+        <!-- 接收PUSH TOKEN的广播以及PUSH消息需要定义该权限 ${PACKAGE_NAME} 要替换上您应用的包名 -->
+        <permission
+            android:name="com.youzhe.penguin.huawei.permission.PROCESS_PUSH_MSG"
+            android:protectionLevel="signatureOrSystem"/>
+
+        <!--接收PUSH TOKEN的广播以及PUSH消息需要定义该权限 ${PACKAGE_NAME} 要替换上您应用的包名 -->
+        <uses-permission android:name="com.youzhe.penguin.huawei.permission.PROCESS_PUSH_MSG" />
+
+    </permissionConfig>
+
+    <applicationConfig>
+    	 <!-- 接入HMSSDK 需要注册的provider，authorities 一定不能与其他应用一样，所以这边 ${PACKAGE_NAME} 要替换上您应用的包名 -->
+        <provider
+            android:name="com.huawei.hms.update.provider.UpdateProvider"
+            android:authorities="{packagename}.hms.update.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"/>
+        
+    <!-- 接入HMSSDK 需要注册的provider，authorities 一定不能与其他应用一样，所以这边 ${PACKAGE_NAME} 要替换上您应用的包名 -->
+        <provider
+            android:name="com.huawei.updatesdk.fileprovider.UpdateSdkFileProvider"
+            android:authorities="{packagename}.updateSdk.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+        </provider>
+        
+        <!-- 使用 HMSAgent 代码接入HMSSDK 需要注册的activity -->
+        <activity
+            android:name="com.huawei.android.hms.agent.common.HMSAgentActivity"
+            android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent" >
+            <meta-data
+                android:name="hwc-theme"
+                android:value="androidhwext:style/Theme.Emui.Translucent" />
+        </activity>
+
+        <!-- 使用 HMSAgent 代码接入HMSSDK 游戏或支付模块时需要注册的activity -->
+        <activity
+            android:name="com.huawei.android.hms.agent.pay.HMSPayAgentActivity"
+            android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent" >
+            <meta-data
+                android:name="hwc-theme"
+                android:value="androidhwext:style/Theme.Emui.Translucent" />
+        </activity>
+
+        <!-- 使用 HMSAgent 代码接入HMSSDK 游戏或支付模块时需要注册的activity | Activity to register when accessing HMSSDK game or payment module using hmsagent code-->
+        <activity
+            android:name="com.huawei.android.hms.agent.pay.HMSPMSPayAgentActivity"
+            android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent" >
+            <meta-data
+                android:name="hwc-theme"
+                android:value="androidhwext:style/Theme.Emui.Translucent" />
+        </activity>
+
+        <!-- 使用 HMSAgent 代码接入HMSSDK 帐号模块时需要注册的activity -->
+        <activity
+            android:name="com.huawei.android.hms.agent.hwid.HMSSignInAgentActivity"
+            android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent" >
+            <meta-data
+                android:name="hwc-theme"
+                android:value="androidhwext:style/Theme.Emui.Translucent" />
+        </activity>
+
+        <!-- 接入HMSSDK 需要注册的activity -->
+        <activity
+            android:name="com.huawei.hms.activity.BridgeActivity"
+            android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent" >
+            <meta-data
+                android:name="hwc-theme"
+                android:value="androidhwext:style/Theme.Emui.Translucent" />
+        </activity>
+
+        <!-- 接入HMSSDK 需要注册的activity -->
+        <activity
+            android:name="com.huawei.updatesdk.service.otaupdate.AppUpdateActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:theme="@style/upsdkDlDialog" >
+            <meta-data
+                android:name="hwc-theme"
+                android:value="androidhwext:style/Theme.Emui.Translucent.NoTitleBar" />
+        </activity>
+
+        <!-- 接入HMSSDK 需要注册的activity -->
+        <activity
+            android:name="com.huawei.updatesdk.support.pm.PackageInstallerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:theme="@style/upsdkDlDialog" >
+            <meta-data
+                android:name="hwc-theme"
+                android:value="androidhwext:style/Theme.Emui.Translucent" />
+        </activity>
+
+        <activity
+            android:name="com.huawei.appmarket.component.buoycircle.impl.delegete.BuoyBridgeActivity"
+            android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent">
+
+            <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent" />
+        </activity>
+
+        <!-- 接入HMSSDK 需要注册的应用下载服务 -->
+        <service android:name="com.huawei.updatesdk.service.deamon.download.DownloadService"
+            android:exported="false"/>
+     </applicationConfig>
+
+</manifest>

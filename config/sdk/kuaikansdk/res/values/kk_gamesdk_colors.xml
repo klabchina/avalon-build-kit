@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="kk_gamesdk_color_G0">#333333</color>
+    <color name="kk_gamesdk_color_black">#000000</color>
+    <color name="kk_gamesdk_color_white">#FFFFFF</color>
+    <color name="kk_gamesdk_color_transparent">#00000000</color>
+    <color name="kk_gamesdk_color_FF442505">#FF442505</color>
+    <color name="kk_gamesdk_color_FF8A95B0">#FF8A95B0</color>
+    <color name="kk_gamesdk_color_FF999999">#FF999999</color>
+    <color name="kk_gamesdk_color_FF8A96AF">#FF8A96AF</color>
+    <color name="kk_gamesdk_color_FFFE8500">#FFFE8500</color>
+    <color name="kk_gamesdk_color_FFCCCCCC">#FFCCCCCC</color>
+    <color name="kk_gamesdk_color_FFED1925">#FFED1925</color>
+    <color name="kk_gamesdk_color_FF0097FD">#FF0097FD</color>
+    <color name="kk_gamesdk_color_d0d0d0">#d0d0d0</color>
+    <color name="kk_gamesdk_color_241c09">#241c09</color>
+    <color name="kk_gamesdk_color_442505">#442505</color>
+    <color name="kk_gamesdk_color_666666">#666666</color>
+    <color name="kk_gamesdk_color_G3">#FF999999</color>
+    <color name="kk_gamesdk_color_G1">#666666</color>
+    <color name="kk_gamesdk_color_FF000000">#FF000000</color>
+    <color name="kk_gamesdk_color_FF8A95B1">#FF8A95B1</color>
+    <color name="kk_gamesdk_color_FFB2B4C4">#FFB2B4C4</color>
+    <color name="kk_gamesdk_color_FFFFDD00">#FFFFDD00</color>
+    <color name="kk_gamesdk_color_FFFFFFFF">#FFFFFFFF</color>
+</resources>

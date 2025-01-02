@@ -1,0 +1,63 @@
+<resources>
+
+    <!-- 登陆界面 -->
+    <dimen name="kk_gamesdk_dimens_background_width">300dp</dimen>
+    <dimen name="kk_gamesdk_dimens_background_height">290dp</dimen>
+    <dimen name="kk_gamesdk_dimens_login_logo_margin_top">26dp</dimen>
+    <dimen name="kk_gamesdk_dimens_exit_margin_top">16dp</dimen>
+    <dimen name="kk_gamesdk_dimens_exit_width">50dp</dimen>
+    <dimen name="kk_gamesdk_dimens_phone_view_margin_top">26.5dp</dimen>
+    <dimen name="kk_gamesdk_dimens_edit_view_width">250dp</dimen>
+    <dimen name="kk_gamesdk_dimens_edit_view_height">40dp</dimen>
+    <dimen name="kk_gamesdk_dimens_edit_margin_left">30dp</dimen>
+    <dimen name="kk_gamesdk_dimens_edit_margin_top">10dp</dimen>
+    <dimen name="kk_gamesdk_dimens_register_login_margin_top">15dp</dimen>
+    <dimen name="kk_gamesdk_dimens_device_login_margin_top">15dp</dimen>
+    <dimen name="kk_gamesdk_dimens_register_width">117.5dp</dimen>
+    <dimen name="kk_gamesdk_dimens_register_height">47dp</dimen>
+    <dimen name="kk_gamesdk_dimens_register_margin_left">25dp</dimen>
+    <dimen name="kk_gamesdk_dimens_device_login_margin_left">59.5dp</dimen>
+
+    <!-- 游客登陆,第二次进入界面 -->
+    <dimen name="kk_gamesdk_dimens_device_avatar_margin_top">36.5dp</dimen>
+    <dimen name="kk_gamesdk_dimens_device_nickname_margin_top">5dp</dimen>
+    <dimen name="kk_gamesdk_dimens_device_login_desc_margin_top">15dp</dimen>
+    <dimen name="kk_gamesdk_dimens_device_bind_margin_top_final">12.5dp</dimen>
+    <dimen name="kk_gamesdk_dimens_device_bind_margin_top">10dp</dimen>
+    <dimen name="kk_gamesdk_dimens_device_bind_width">99dp</dimen>
+    <dimen name="kk_gamesdk_dimens_device_bind_height">47dp</dimen>
+    <dimen name="kk_gamesdk_dimens_device_bind_margin_left">40.5dp</dimen>
+    <dimen name="kk_gamesdk_dimens_switch_account_margin_top">15dp</dimen>
+    <dimen name="kk_gamesdk_dimens_switch_account_margin_bottom">25.5dp</dimen>
+
+    <!-- 帐号注册界面 -->
+    <dimen name="kk_gamesdk_dimens_register_title_margin_top">12.5dp</dimen>
+    <dimen name="kk_gamesdk_dimens_register_back_width">50dp</dimen>
+    <dimen name="kk_gamesdk_dimens_register_veryfycode_width">75dp</dimen>
+    <dimen name="kk_gamesdk_dimens_register_submit_height">47dp</dimen>
+    <dimen name="kk_gamesdk_dimens_user_agreement_width">165dp</dimen>
+
+    <!-- 绑定手机-->
+    <dimen name="kk_gamesdk_dimens_bind_phone_desc_margin_top_final">20dp</dimen>
+    <dimen name="kk_gamesdk_dimens_bind_phone_desc_margin_top">35dp</dimen>
+    <dimen name="kk_gamesdk_dimens_bind_phone_desc_margin_left">38.5dp</dimen>
+    <dimen name="kk_gamesdk_dimens_bind_phone_num_margin_top">14.5dp</dimen>
+    <dimen name="kk_gamesdk_dimens_bind_phone_forget_pwd_margin_bottom">20dp</dimen>
+    <dimen name="kk_gamesdk_dimens_bind_phone_forget_pwd_width">219dp</dimen>
+
+    <!-- 快看账号进入app -->
+    <dimen name="kk_gamesdk_dimens_resume_kkaccount_width">292dp</dimen>
+    <dimen name="kk_gamesdk_dimens_resume_kkaccount_height">44dp</dimen>
+    <dimen name="kk_gamesdk_dimens_resume_kkaccount_avatar_size">25dp</dimen>
+    <dimen name="kk_gamesdk_dimens_resume_kkaccount_desc_left_margin">10dp</dimen>
+    <dimen name="kk_gamesdk_dimens_resume_kkaccount_switch_right_margin">20dp</dimen>
+    <dimen name="kk_gamesdk_dimens_resume_kkaccount_desc_width">144.5dp</dimen>
+    <dimen name="kk_gamesdk_dimens_resume_kkaccount_desc_height">16.5dp</dimen>
+    <dimen name="kk_gamesdk_dimens_resume_kkaccount_switch_left_margin">30dp</dimen>
+
+    <!-- Webview -->
+    <dimen name="kk_gamesdk_webview_progress_width">2dp</dimen>
+
+    <!-- 实名认证 -->
+    <dimen name="kk_gamesdk_real_name_submit_height">87dp</dimen>
+</resources>

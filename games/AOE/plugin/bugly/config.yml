@@ -1,0 +1,13 @@
+---
+# plugin的配置放在这边,是因为每个游戏的配置都不一样 ,又不想用required这种字段来处理
+params:
+  - { name: "Bugly_AppID", value: "900004591", showName: "AppID", desc: "腾讯Bugly日志插件",
+  bWriteInManifest: "0", bWriteInClient: "1" }
+  - { name: "Bugly_AppKey", value: "9BOHhQUKJwwSZ6RE", showName: "AppKey", desc: "腾讯Bugly日志插件",
+  bWriteInManifest: "0", bWriteInClient: "1" }
+
+operations:
+  - { step: "1", type: "mergeManifest", from: "SDKManifest.xml", to: "AndroidManifest.xml" }
+  - { step: "2", type: "copyRes", from: "assets", to: "assets" }
+  - { step: "3", type: "copyRes", from: "libs", to: "lib" }
+  - { step: "4", type: "copyRes", from: "res", to: "res" }

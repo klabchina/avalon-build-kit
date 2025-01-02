@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<plugin name="com.platform.pbilibili.PlatFormBili" type="1" />
+<plugin name="com.platform.pbilibili.PlatFormBiliPay" type="2" />

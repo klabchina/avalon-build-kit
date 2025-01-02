@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/kk_gamesdk_color_transparent">
+
+
+    <RelativeLayout
+        android:layout_width="@dimen/kk_gamesdk_dimens_background_width"
+        android:layout_height="@dimen/kk_gamesdk_dimens_background_height"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/kk_gamesdk_background">
+
+        <TextView
+            android:id="@+id/kk_gamesdk_register_desc_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/kk_gamesdk_dimens_register_title_margin_top"
+            android:text="@string/kk_gamesdk_phone_signup"
+            android:textColor="@color/kk_gamesdk_color_FF999999"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:id="@+id/kk_gamesdk_register_back_view"
+            android:layout_width="@dimen/kk_gamesdk_dimens_register_back_width"
+            android:layout_height="@dimen/kk_gamesdk_dimens_register_back_width"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/kk_gamesdk_ic_back"/>
+
+        <RelativeLayout
+            android:id="@+id/kk_gamesdk_phone_num_veiw_layout"
+            android:layout_width="@dimen/kk_gamesdk_dimens_edit_view_width"
+            android:layout_height="@dimen/kk_gamesdk_dimens_edit_view_height"
+            android:layout_below="@id/kk_gamesdk_register_desc_view"
+            android:layout_marginTop="@dimen/kk_gamesdk_dimens_register_title_margin_top"
+            android:background="@drawable/kk_gamesdk_bg_editview"
+            android:layout_centerHorizontal="true">
+
+            <EditText
+                android:id="@+id/kk_gamesdk_phone_num_veiw"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/kk_gamesdk_dimens_edit_margin_left"
+                android:layout_marginRight="@dimen/kk_gamesdk_dimens_edit_margin_left"
+                android:background="@null"
+                android:singleLine="true"
+                android:imeOptions="flagNoExtractUi"
+                android:textColorHint="@color/kk_gamesdk_color_FF999999"
+                android:textColor="@color/kk_gamesdk_color_FF999999"
+                android:textSize="15sp"
+                android:hint="@string/kk_gamesdk_phone_num"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/kk_gamesdk_press_phone_verify_code_veiw_layout"
+            android:layout_width="@dimen/kk_gamesdk_dimens_edit_view_width"
+            android:layout_height="@dimen/kk_gamesdk_dimens_edit_view_height"
+            android:layout_below="@id/kk_gamesdk_phone_num_veiw_layout"
+            android:layout_marginTop="@dimen/kk_gamesdk_dimens_device_bind_margin_top"
+            android:background="@drawable/kk_gamesdk_bg_editview"
+            android:layout_centerHorizontal="true">
+
+            <EditText
+                android:id="@+id/kk_gamesdk_phone_verify_code_view"
+                android:layout_width="@dimen/kk_gamesdk_dimens_register_veryfycode_width"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/kk_gamesdk_dimens_edit_margin_left"
+                android:background="@null"
+                android:singleLine="true"
+                android:imeOptions="flagNoExtractUi"
+                android:textColorHint="@color/kk_gamesdk_color_FF999999"
+                android:textColor="@color/kk_gamesdk_color_FF999999"
+                android:textSize="15sp"
+                android:hint="@string/kk_gamesdk_phone_verify_code"/>
+
+            <TextView
+                android:id="@+id/kk_gamesdk_press_phone_verify_code_veiw"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/kk_gamesdk_dimens_edit_margin_left"
+                android:text="@string/kk_gamesdk_get_verify_code"
+                android:background="@null"
+                android:textColor="@color/kk_gamesdk_color_FFFE8500"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="12dp"
+                android:layout_toLeftOf="@id/kk_gamesdk_press_phone_verify_code_veiw"
+                android:layout_marginRight="@dimen/kk_gamesdk_dimens_edit_margin_top"
+                android:layout_centerVertical="true"
+                android:background="@color/kk_gamesdk_color_FFCCCCCC"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/kk_gamesdk_phone_pwd_view_layout"
+            android:layout_width="@dimen/kk_gamesdk_dimens_edit_view_width"
+            android:layout_height="@dimen/kk_gamesdk_dimens_edit_view_height"
+            android:layout_below="@id/kk_gamesdk_press_phone_verify_code_veiw_layout"
+            android:layout_marginTop="@dimen/kk_gamesdk_dimens_device_bind_margin_top"
+            android:background="@drawable/kk_gamesdk_bg_editview"
+            android:layout_centerHorizontal="true">
+
+            <EditText
+                android:id="@+id/kk_gamesdk_phone_pwd_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/kk_gamesdk_dimens_edit_margin_left"
+                android:layout_marginRight="@dimen/kk_gamesdk_dimens_edit_margin_left"
+                android:background="@null"
+                android:singleLine="true"
+                android:password="true"
+                android:imeOptions="flagNoExtractUi"
+                android:textColorHint="@color/kk_gamesdk_color_FF999999"
+                android:textColor="@color/kk_gamesdk_color_FF999999"
+                android:textSize="15sp"
+                android:hint="@string/kk_gamesdk_phone_pwd"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/kk_gamesdk_phone_register_result_view"
+            android:layout_width="@dimen/kk_gamesdk_dimens_edit_view_width"
+            android:layout_height="@dimen/kk_gamesdk_dimens_register_submit_height"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/kk_gamesdk_phone_pwd_view_layout"
+            android:layout_marginTop="@dimen/kk_gamesdk_dimens_device_bind_margin_top"
+            android:background="@drawable/kk_gamesdk_bg_yellow"
+            android:text="@string/kk_gamesdk_signup"
+            android:textColor="@color/kk_gamesdk_color_FF442505"
+            android:textSize="18sp"/>
+
+        <RelativeLayout
+            android:id="@+id/kk_gamesdk_user_agreement_view_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/kk_gamesdk_phone_register_result_view"
+            android:layout_marginTop="@dimen/kk_gamesdk_dimens_device_bind_margin_top"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/kk_gamesdk_user_agreement_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/kk_gamesdk_user_agreement"
+                android:textColor="@color/kk_gamesdk_color_FF999999"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/kk_gamesdk_click_user_agreement_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/kk_gamesdk_user_agreement_view"
+                android:text="@string/kk_gamesdk_click_user_agreement"
+                android:textColor="@color/kk_gamesdk_color_FF8A95B0"
+                android:textSize="11sp"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,33 @@
+---
+# 全局插件配置,暂时没有,功能保留
+# global-plugins:
+#  - name:
+#    desc:
+# channels 配置
+channels:
+  - id: '35'
+    name: txmsdk
+    sdk: txmsdk
+    desc: 腾讯应用宝(MSDK)
+    suffix: 'com.tencent.tmgp.lovefires.player'
+    splash: '0'
+    splash_copy_to_unity: '0'
+    # 针对每个sdk的不同配置, 每个游戏独立
+    sdk-params:
+      - { desc: QQAppID, name: WG_QQAPPID, value: "1104556695" }
+      - { desc: QQAppKey, name: WG_QQAPPKEY, value: DDebGjkcpZzO4GEM }
+      - { desc: 微信AppID, name: WG_WXAPPID, value: wx07dc001b46d4092c }
+      - { desc: 微信AppKey, name: WG_MSDKKEY, value: c4cb80dd6384274aa6f3e4d1b524087c }
+      - { desc: 'OfferId,一般就是QQ AppId', name: WG_OFFERID, value: "1104556695" }
+      - { desc: "test(测试环境)|release(正式环境)", name: WG_ENV, value: test }
+      - { desc: "是否开启日志 true|false", name: WG_DEBUG_MODE, value: "true" }
+      - { desc: "是否定额支付 true|false", name: WG_FIXEDPAY, value: "true" }
+      - { desc: "支付界面游戏币Icon名称，drawable资源目录下的文件名称，不带后缀", name: WG_COIN_ICON_NAME, value: coin_icon }
+      - { desc: "true|false", name: WG_MULTI_SERVERS, value: "false" }
+      - { desc: "sdk server 处理查询充值逻辑的地址", name: WG_PAY_URL, value: "http://192.168.18.9:8080/pay/txmsdk/charge" }
+    sdkLogicVersionCode: '1'
+    sdkLogicVersionName: '2.8.1'
+    # 针对这个渠道的插件配置
+    # plugins:
+    #  - name: 1
+    #    desc: 1

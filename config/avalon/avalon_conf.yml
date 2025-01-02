@@ -1,0 +1,6 @@
+---
+sdk_update_url: "https://avalon-dev.you-zhe.com/avalonserver/sdk_update/"
+use_avalon_auth: "1"
+avalon_auth_url: "https://avalon-dev.you-zhe.com/avalonserver/user/getToken"
+avalon_server_url: "https://avalon-dev.you-zhe.com/avalonserver/"
+avalon_bundle_version: "1.0.0"

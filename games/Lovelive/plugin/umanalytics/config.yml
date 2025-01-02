@@ -1,0 +1,18 @@
+---
+params:
+  - { name: UMENG_APPKEY, value: "54a0e798fd98c56c8000077f", required: "1", showName: "AppKey",
+  desc: "友盟分析统计", bWriteInManifest: "1", bWriteInClient: "0" }
+  - { name: UMENG_CHANNEL, value: "Channel", required: "1", showName: "渠道号（通过自定义脚本，动态设置为渠道名称）",
+  desc: "友盟分析统计", bWriteInManifest: "1", bWriteInClient: "0" }
+  - { name: UMENG_PAYSOURCE, value: "21", required: "1", showName: "支付来源(友盟后台添加，从20之后开始)",
+  desc: "友盟分析统计", bWriteInManifest: "0", bWriteInClient: "1" }
+
+operations:
+  - { step: "1", type: "mergeManifest", from: "SDKManifest.xml", to: "AndroidManifest.xml" }
+  - { step: "2", type: "copyRes", from: "assets", to: "assets" }
+  - { step: "3", type: "copyRes", from: "libs", to: "lib" }
+  - { step: "4", type: "copyRes", from: "res", to: "res" }
+  - { step: "5", type: "script", from: "script.py", to: "" }
+
+plugins:
+  - { name: "com.avalon.sdk.UMAnalytics", type: "5", desc: "统计分析插件"}
