@@ -26,7 +26,7 @@ def get_games_conf():
     config_file_path = file_utils.get_full_path("games/games.yml")
     try:
         with open(config_file_path, 'r') as stream:
-            games = yaml.load(stream)
+            games = yaml.safe_load(stream)
             return games
     except Exception as e:
         secho("[Fail]can't parse games.xml error info:%s path:%s" % (str(e), config_file_path), fg='red')
@@ -44,7 +44,7 @@ def get_protected_keystore(game_name='Penguin', env=True):
     print("config file path is %s" % config_file_path)
     try:
         with open(config_file_path, 'r') as stream:
-            keystore = yaml.load(stream)
+            keystore = yaml.safe_load(stream)
             return keystore
     except Exception as e:
         secho("[Fail]can't parse keystore.xml error info:%s path:%s" % (str(e), config_file_path), fg='red')
@@ -56,7 +56,7 @@ def get_protected_so(game_name='Lapis'):
     print("config file path is %s" % config_file_path)
     try:
         with open(config_file_path, 'r') as stream:
-            keystore = yaml.load(stream)
+            keystore = yaml.safe_load(stream)
             return keystore
     except Exception as e:
         secho("[Fail]can't parse keystore.xml error info:%s path:%s" % (str(e), config_file_path), fg='red')
@@ -67,7 +67,7 @@ def get_channels_conf(game_name="Lovelive"):
     config_file_path = file_utils.get_full_path("games/" + game_name + "/game_channels_config.yml")
     try:
         with open(config_file_path, 'r') as stream:
-            game_channels_config = yaml.load(stream)
+            game_channels_config = yaml.safe_load(stream)
             # 加载插件配置
             global_plugins = []
             if "global-plugins" in game_channels_config:
@@ -98,7 +98,7 @@ def load_channel_config(channel_name, game_channel_conf):
     config_path = file_utils.get_full_path('config/sdk/%s/config.yml' % channel_name)
     try:
         with open(config_path, 'r') as stream:
-            one_channel = yaml.load(stream)
+            one_channel = yaml.safe_load(stream)
             if "params" in one_channel:
                 for param in one_channel["params"]:
                     if "required" in param and "1" == param["required"]:
@@ -120,7 +120,7 @@ def load_plugin_config(game_name, plugin_name):
     plugin_config_path = file_utils.get_full_path("games/%s/plugin/%s/config.yml" % (game_name, plugin_name))
     try:
         with open(plugin_config_path, 'r') as stream:
-            plugin_config = yaml.load(stream)
+            plugin_config = yaml.safe_load(stream)
             return plugin_config
     except Exception as e:
         secho("[Fail]config_utils.load_plugin_config error info:%s path:%s" % (str(e), plugin_config_path), fg='red')
@@ -130,7 +130,7 @@ def load_plugin_config(game_name, plugin_name):
 def load_avalon_config():
     avalon_config_path = file_utils.get_full_path("config/avalon/avalon_conf.yml")
     with open(avalon_config_path, 'r') as stream:
-        avalon_config = yaml.load(stream)
+        avalon_config = yaml.safe_load(stream)
         if "use_avalon_auth" not in avalon_config or "avalon_auth_url" not in avalon_config \
                 or "avalon_server_url" not in avalon_config:
             msg = "the use_avalon_auth or avalon_auth_url is not exists in config/avalon/avalon_conf.yml,please check!!"
@@ -142,7 +142,7 @@ def load_avalon_config():
 def load_keystore_config(game_name, channel_id):
     keystore_config_path = file_utils.get_full_path("games/%s/keystore.yml" % game_name)
     with open(keystore_config_path, 'r') as stream:
-        keystore_config = yaml.load(stream)
+        keystore_config = yaml.safe_load(stream)
         if "channel_keystores" in keystore_config and keystore_config['channel_keystores'] is not None:
             for keystore in keystore_config['channel_keystores']:
                 if keystore['channelId'] == channel_id:
