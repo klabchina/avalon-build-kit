@@ -20,7 +20,7 @@ __author__ = 'Kevin Sun <sun-w@klab.com>'
 ANDROID_NS = 'http://schemas.android.com/apk/res/android'
 
 
-def decompile_apk(source, target_dir, apk_tool="apktool_2.6.0.jar"):
+def decompile_apk(source, target_dir, apk_tool="apktool_2.10.0.jar"):
     full_apk_file = file_utils.get_full_path(source)
     target_dir = file_utils.get_full_path(target_dir)
     apk_tool = file_utils.get_full_tool_path(apk_tool)
@@ -33,7 +33,7 @@ def decompile_apk(source, target_dir, apk_tool="apktool_2.6.0.jar"):
     ret = cli_utils.exec_cmd(cmd)
     return ret
 
-def decompile_apk_nodex(source, target_dir, apk_tool="apktool_2.6.0.jar"):
+def decompile_apk_nodex(source, target_dir, apk_tool="apktool_2.10.0.jar"):
     full_apk_file = file_utils.get_full_path(source)
     target_dir = file_utils.get_full_path(target_dir)
     apk_tool = file_utils.get_full_tool_path(apk_tool)
@@ -69,7 +69,7 @@ def mono_encrypt(path, ver):
     unity_utils.encrypt_unity(ver, decompile_dir)
 
 
-def recompile_apk(source_folder, apk_file, apk_tool="apktool_2.6.0.jar"):
+def recompile_apk(source_folder, apk_file, apk_tool="apktool_2.10.0.jar"):
     ret = 1
     os.chdir(file_utils.cur_dir)
     source_folder = file_utils.get_full_path(source_folder)
@@ -108,7 +108,7 @@ def jar2dex(src_dir, dst_dir, dex_tool="dx.jar"):
     return ret
 
 
-def dex2smali(dex_file, target_dir, dex_tool="baksmali-2.4.0.jar"):
+def dex2smali(dex_file, target_dir, dex_tool="baksmali-2.5.2.jar"):
     dex_file = file_utils.get_full_path(dex_file)
     bak_smali_tool = file_utils.get_full_tool_path(dex_tool)
     target_dir = file_utils.get_full_path(target_dir)
@@ -123,7 +123,7 @@ def dex2smali(dex_file, target_dir, dex_tool="baksmali-2.4.0.jar"):
     return ret
 
 
-def smali2dex(source_dir, dex_file, dex_tool="smali-2.4.0.jar"):
+def smali2dex(source_dir, dex_file, dex_tool="smali-2.5.2.jar"):
     dex_file = file_utils.get_full_path(dex_file)
     dex_tool = file_utils.get_full_tool_path(dex_tool)
     source_dir = file_utils.get_full_path(source_dir)
@@ -1082,7 +1082,7 @@ def generate_new_r_file(new_package_name, decompile_dir, smali_folder):
         secho(msg, fg='red')
         raise Exception(msg)
     smali_path = file_utils.get_full_path(os.path.join(decompile_dir, smali_folder))
-    ret = dex2smali(target_dex_file, smali_path, 'baksmali-2.4.0.jar')
+    ret = dex2smali(target_dex_file, smali_path, 'baksmali-2.5.2.jar')
     if ret:
         raise Exception('generate_new_r_file dex2smali fail')
 

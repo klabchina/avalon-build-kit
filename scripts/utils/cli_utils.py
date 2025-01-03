@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
+import importlib
 import re
 import click
 import platform
@@ -15,7 +16,7 @@ def exec_cmd(cmd, ignore = False):
     cmd = re.sub('/+', '/', cmd)
     ret = 0
     try:
-        reload(sys)
+        importlib.reload(sys)
         sys.setdefaultencoding('utf-8')
         if platform.system() == 'Windows':
             st = subprocess.STARTUPINFO

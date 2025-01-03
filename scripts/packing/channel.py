@@ -142,7 +142,7 @@ class Channel:
         secho('white list is %s' % white_list, fg='green')
 
         temp_sdk_smali_dir = self.sdk_work_dir + "/tmp_smali"
-        ret = apk_utils.dex2smali(self.sdk_work_dir + "/classes.dex", temp_sdk_smali_dir, "baksmali-2.4.0.jar")
+        ret = apk_utils.dex2smali(self.sdk_work_dir + "/classes.dex", temp_sdk_smali_dir, "baksmali-2.5.2.jar")
         if ret:
             msg = "[FAIL]dex2smali fail classes.dex source:%s smali dir:%s" % (
                 self.sdk_work_dir + "/classes.dex", self.decompile_smali_dir)
@@ -403,7 +403,7 @@ class Channel:
         # 先将sdk中所有的jar打包成一个classes.dex
         if not file_utils.exists(avalon_sdk_source + "/classes.dex"):
             apk_utils.jar2dex(avalon_sdk_source, avalon_sdk_work_dir)
-        ret = apk_utils.dex2smali(avalon_sdk_work_dir + "/classes.dex", self.decompile_smali_dir, "baksmali-2.4.0.jar")
+        ret = apk_utils.dex2smali(avalon_sdk_work_dir + "/classes.dex", self.decompile_smali_dir, "baksmali-2.5.2.jar")
         if ret:
             msg = "[FAIL]dex2smali fail classes.dex source:%s smali dir:%s" % (
                 avalon_sdk_work_dir + "/classes.dex", self.decompile_smali_dir)
