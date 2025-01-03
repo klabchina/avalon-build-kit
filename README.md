@@ -17,13 +17,13 @@ python main.py protected protectedapk -p {apk_path} -s CC(游戏名称 config目
 
 
 
-# OLD 2021  Android打包工具
-## 1 环境准备
-* Python2.7 or Python3.4 pip
-* 安装python第三方lib库 pip install -r requirements.txt
-* 使用加壳功能 需要安装gradle 4.5以上版本
+# ~~OLD 2021  Android打包工具~~
+## ~~1 环境准备~~
+* ~~Python2.7 or Python3.4 pip
+* ~~安装python第三方lib库 pip install -r requirements.txt
+* ~~使用加壳功能 需要安装gradle 4.5以上版本
 
-## 2 脚本执行入口
+## ~~2 脚本执行入口~~
 1.渠道打包
 gameid 游戏id 在avalon 那边配置
 channelid 渠道id 在渠道这边配置
@@ -50,11 +50,11 @@ python main.py protected protectedapk -p {apk_path} -m 360
 #使用360方式加密
 ```
 
-## 3 APK输出路径
+## ~~3 APK输出路径~~
 * {{项目根路径}}/output
 
 
-## 4 AAB 加固
+## ~~4 AAB 加固~~
 ```
 使用aab 加固能使aab内具有apk加固相同的功能
 cd ./scripts
