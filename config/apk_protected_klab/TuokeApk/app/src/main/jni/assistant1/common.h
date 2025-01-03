@@ -14,5 +14,5 @@
 #define SO_NAME "libassistant1.so"
 
 
-int global_abi_type;
+extern int global_abi_type;
 #endif //ANTI_DEBUG_COMMON_H

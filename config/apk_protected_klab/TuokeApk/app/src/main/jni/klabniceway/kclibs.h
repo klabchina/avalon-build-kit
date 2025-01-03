@@ -34,7 +34,7 @@ jboolean loop_namedpipe();
 jboolean loop_mg();
 
 
-JavaVM* jvm;
-const char* so_name;
-int global_api_level;
-int main_pid;
+extern JavaVM* jvm;
+extern const char* so_name;
+extern int global_api_level;
+extern int main_pid;

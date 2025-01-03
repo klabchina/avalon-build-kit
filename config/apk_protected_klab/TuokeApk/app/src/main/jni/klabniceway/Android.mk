@@ -12,8 +12,8 @@ LOCAL_SRC_FILES := hackcodejiagu.c \
                    kclibs.c \
                    checksum.c
 LOCAL_LDLIBS := -llog
-LOCAL_CFLAGS += -fvisibility=hidden -mllvm -sub_loop=6 -mllvm -bcf_loop=3 -mllvm -bcf_prob=50 -mllvm -fla
-LOCAL_CPPFLAGS += -std=c++11  -fvisibility=hidden -mllvm -sub_loop=6 -mllvm -bcf_loop=3 -mllvm -bcf_prob=50 -mllvm -fla
+#LOCAL_CFLAGS += -fvisibility=hidden -mllvm -sub_loop=6 -mllvm -bcf_loop=3 -mllvm -bcf_prob=50 -mllvm -fla
+LOCAL_CPPFLAGS += -std=c++11
 
 
 ifeq ($(TARGET_ARCH_ABI),arm64-v8a)

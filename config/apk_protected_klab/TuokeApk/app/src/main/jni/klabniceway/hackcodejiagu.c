@@ -16,7 +16,10 @@
 
 //#define LOG_TAG "demo"
 //#define LOGI(...)  __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
-
+JavaVM* jvm;
+const char* so_name;
+int global_api_level;
+int main_pid;
 
 void init_func() __attribute__((constructor (2)));
 void init_func(){

@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    namespace "org.hackcode"
+    compileSdkVersion 34
+    ndkVersion "23.1.7779620"
 
     lintOptions {
         abortOnError false
@@ -10,13 +11,16 @@ android {
 
     defaultConfig {
         applicationId "org.hackcode"
-        minSdkVersion 14
-        targetSdkVersion 21
+        minSdkVersion 16
+        targetSdkVersion 33
 
         ndk {
             moduleName "hackcodejiagu"
             abiFilters 'armeabi-v7a', 'arm64-v8a'
         }
+    }
+    buildFeatures {
+        aidl true  // 启用 AIDL
     }
     externalNativeBuild{
         ndkBuild{

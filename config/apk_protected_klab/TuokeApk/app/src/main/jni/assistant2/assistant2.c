@@ -8,6 +8,7 @@
 #include "checksum.h"
 #include <pthread.h>
 
+int global_abi_type = 0;
 
 __attribute__((section (".kcniceway")))void *check_thread()
 {
