@@ -1,4 +1,23 @@
-# Android打包工具
+# New 2025.1  Android加固，渠道打包新版
+## 1 环境准备
+* Python3.10++ 
+* 安装python第三方lib库 pip install -r requirements.txt
+* 使用加壳功能 需要安装gradle 8.12版本++ java17
+
+## 加固
+```
+使用aab 加固能使aab内具有apk加固相同的功能
+cd ./scripts
+AAB:
+python main.py protected protectedaab -p {aab_path} -s CC(游戏名称 config目录中配置游戏签名，渠道，需要加固的so等)
+
+APK:
+python main.py protected protectedapk -p {apk_path} -s CC(游戏名称 config目录中配置游戏签名，渠道，需要加固的so等)
+```
+
+
+
+# OLD 2021  Android打包工具
 ## 1 环境准备
 * Python2.7 or Python3.4 pip
 * 安装python第三方lib库 pip install -r requirements.txt
