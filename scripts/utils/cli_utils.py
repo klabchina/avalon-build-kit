@@ -17,7 +17,6 @@ def exec_cmd(cmd, ignore = False):
     ret = 0
     try:
         importlib.reload(sys)
-        sys.setdefaultencoding('utf-8')
         if platform.system() == 'Windows':
             st = subprocess.STARTUPINFO
             st.dwFlags = subprocess.STARTF_USESHOWWINDOW

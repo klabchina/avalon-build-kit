@@ -101,7 +101,7 @@ def recompile_tuokeapk_project(application_name):
     subprocess.Popen("gradle clean", shell=True, stdout=subprocess.PIPE).stdout.read()
     out = subprocess.Popen("gradle build", shell=True, stdout=subprocess.PIPE).stdout.read()
     print(out)
-    if out.find('BUILD SUCCESSFUL') < 0:
+    if out.find(('BUILD SUCCESSFUL').encode('utf-8')) < 0:
         print('Build error!')
         raise Exception("Gradle Build Failed")
         return False
@@ -192,7 +192,7 @@ def dex_protected(dir_name, dex_count, unknow_path):
     os.remove('classes.dex')
 
     shutil.copyfile(file_utils.get_full_path(
-        'config/apk_protected_klab/TuokeApk/app/build/intermediates/transforms/dex/release/0/classes.dex'), 'tuoke.dex')
+        'config/apk_protected_klab/TuokeApk/app/build/intermediates/dex/release/mergeDexRelease/classes.dex'), 'tuoke.dex')
 
     jiagu_resut = cli_utils.exec_cmd(
         'java -jar ' + file_utils.get_full_tool_path('klab_protected.jar') + ' tuoke.dex TargetApk.zip')
@@ -215,7 +215,7 @@ def find_dex_num(project_dir):
     ret = 0
     for root, dirs, files in os.walk(project_dir):
         for dir in dirs:
-            if "smali" in dir:
+            if "smali" in dir and "assets" not in dir:
                 ret = ret + 1
 
     return ret

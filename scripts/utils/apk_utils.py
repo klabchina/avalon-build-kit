@@ -1117,9 +1117,11 @@ def add_res_to_apk(decompile_dir, apk_file):
             raise Exception(msg)
 
 
-def zipalign_apk(src_apk_file, dst_apk_file, zipalign_tool_path="/Users/kc-pazuran/Library/Android/sdk/build-tools/28.0.3/zipalign"):
+def zipalign_apk(src_apk_file, dst_apk_file, zipalign_name="zipalign"):
     # zipalign_tool_path = ""
     # file_utils.get_full_tool_path('zipalign')
+
+    zipalign_tool_path = file_utils.get_full_tool_path(zipalign_name)
     cmd = '"%s" -f 4 "%s" "%s"' % (zipalign_tool_path, src_apk_file, dst_apk_file)
     ret = cli_utils.exec_cmd(cmd)
     if ret:
