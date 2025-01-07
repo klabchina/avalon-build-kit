@@ -45,15 +45,15 @@ public class ProxyApplication extends Application{
 	
 	@Override
 	public void onCreate() {
-		try {
-
+        try {
+			Log.e("KlabHack", "[KlabHack]=>onCreate()=>Start");
 			if (!isUIProcess())
 			{
 				return;
 			}
 
 			// 如果源应用配置有Appliction对象，则替换为源应用Applicaiton，以便不影响源程序逻辑。  
-			String appClassName = "com.mason.sotest.StartApplication";
+			String appClassName = "com.safedk.android.SafeDKApplication";
 			/**
 			 * 调用静态方法android.app.ActivityThread.currentActivityThread
 			 * 获取当前activity所在的线程对象
@@ -142,6 +142,7 @@ public class ProxyApplication extends Application{
             }
             else
             {
+				Log.e("KlabHack", "[KlabHack]=>onCreate()=>App PreStart");
                 SharedPreferences sp = getSharedPreferences("first_load", Context.MODE_PRIVATE);
                 boolean isLoaded = sp.getBoolean("is_loaded", false);
                 if (!isLoaded)
@@ -246,7 +247,7 @@ public class ProxyApplication extends Application{
 	@Override
 	public void attachBaseContext(Context base)
 	{
-
+		Log.e("KlabHack", "[KlabHack]=>onCreate()=>App Attach");
 	    timeTick = System.currentTimeMillis();
 		super.attachBaseContext(base);
 
@@ -302,6 +303,7 @@ public class ProxyApplication extends Application{
             }
             else
             {
+				Log.e("KlabHack", "[KlabHack]=>First Start " + sb.toString());
                 start((Application)this, sb.toString(), base.getClassLoader().getParent(), wr.get());
             }
 		} catch (Exception e) {

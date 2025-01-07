@@ -188,6 +188,11 @@ def dex_protected(dir_name, dex_count, unknow_path):
     for i in range(2, dex_count + 1):
         f.write('classes' + str(i) + '.dex')
         os.remove('classes' + str(i) + '.dex')
+
+    if (file_utils.exists('assets.dex')):
+        f.write('assets.dex')
+        os.remove('assets.dex')
+
     f.close()
     os.remove('classes.dex')
 
@@ -350,18 +355,26 @@ def klab_protected(filepath, sign_name):
     if ret:
         print('[Error] apktool decompiled error!')
         return
+    
+
     print('[+] Apktool decompiled Target.modified.apk successfully!')
     extracted_dir = path.join(dir_name, 'Target.modified.apk_files')
 
     print('[+] Extracted classes.dex from Target.modifed.apk into TargetApk.zip')
     shutil.copyfile(extracted_dir + '/classes.dex', path.join(dir_name, 'classes.dex'))
+    os.remove(extracted_dir + '/classes.dex')
     for i in range(2, dex_num + 1):
         shutil.copyfile(extracted_dir + '/classes' + str(i) + '.dex', path.join(dir_name, 'classes' + str(i) + '.dex'))
         os.remove(extracted_dir + '/classes' + str(i) + '.dex')
-
+    
+    if (file_utils.exists(extracted_dir + '/assets.dex')):
+        shutil.copyfile(extracted_dir + '/assets.dex', path.join(dir_name, 'assets.dex'))
+        os.remove(extracted_dir + '/assets.dex')
 
     # Step7: 合并TuokeApk/bin/classes.dex和TargetApk.zip(加固),生成classes.dex
     dex_protected(dir_name, dex_num, path.join(dir_name, "Target/unknown"))
+
+    return
 
     # Step8: 将合并生成的新classes.dex文件与Target.modified.apk中的classes.dex替换
     print('[+] Replace \"%s\" with \"classes.dex\"' % (extracted_dir + '/classes.dex',))

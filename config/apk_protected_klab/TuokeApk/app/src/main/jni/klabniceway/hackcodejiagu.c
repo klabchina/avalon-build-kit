@@ -403,6 +403,7 @@ __attribute__((section (".kcniceway")))void native_start
 	jbyteArray classesDexData = readNiceWay_01(env, obj);
 	readNiceWay_02(env, obj, classesDexData, targetFilename);
 
+    LOGI("=============== before run is ok ===============");
 	run(env, obj, targetFilename, odexPath, libraryPath, parent, loadedApk);
 
 }
