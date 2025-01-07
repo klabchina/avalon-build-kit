@@ -14,8 +14,8 @@
 
 #include <asm/unistd.h>
 
-//#define LOG_TAG "demo"
-//#define LOGI(...)  __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+#define LOG_TAG "KC-JIAGU"
+#define LOGI(...)  __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
 JavaVM* jvm;
 const char* so_name;
 int global_api_level;
@@ -32,8 +32,14 @@ __attribute__((section (".kcniceway")))jbyteArray readNiceWay_03(JNIEnv *env, jb
 	jbyte* byteArray = (*env)->GetByteArrayElements(env, srcdata, JNI_FALSE);
 	jsize len = (*env)->GetArrayLength(env, srcdata);
 
-	jbyte buffer[len];
-	jbyteArray decodedArray = (*env)->NewByteArray(env, len);
+    LOGI("bytes total length is %d", len);
+
+    jbyte* buffer = (jbyte*)malloc(len * sizeof(jbyte));
+    if (!buffer) {
+        LOGE("Memory allocation failed");
+        return NULL;
+    }
+
 
 	jsize i;
 
@@ -53,15 +59,19 @@ __attribute__((section (".kcniceway")))jbyteArray readNiceWay_03(JNIEnv *env, jb
 		buffer[i] = ~(buffer[i] ^ oKey);
 	}
 
+    LOGI("======== DecodeArray Create End  ==========");
+    jbyteArray decodedArray = (*env)->NewByteArray(env, len);
+    (*env)->ReleaseByteArrayElements(env, srcdata, byteArray, 0);
 	(*env)->SetByteArrayRegion(env, decodedArray, 0, len, buffer);
 
-	(*env)->ReleaseByteArrayElements(env, srcdata, byteArray, 0);
+    free(buffer);
+
 	return decodedArray;
 }
 
 
 __attribute__((section (".kcniceway")))jbyteArray readNiceWay_01(JNIEnv *env, jobject obj){
-	//LOGI("===============readClassesDexFromApk start===============");
+	LOGI("===============readClassesDexFromApk start===============");
 	//////////////////ByteArrayOutputStream dexByteArrayOutputStream = new ByteArrayOutputStream();
 	//classes.dex
 	char java_dex[] = KCAPP_JAVA_DEXNAME;
@@ -142,7 +152,7 @@ __attribute__((section (".kcniceway")))jbyteArray readNiceWay_01(JNIEnv *env, jo
 		jstring entryName = (jstring)(*env)->CallObjectMethod(env, zipEntryObj, getNameMethodID);
 		const char* entryNameStr = (*env)->GetStringUTFChars(env, entryName, 0);
 		if(my_strcmp(entryNameStr, java_dex) == 0){
-			//LOGI("Find classes.dex!!!!!!!!!");
+			LOGI("Find classes.dex!!!!!!!!!");
 			jbyteArray buffer = (*env)->NewByteArray(env, 1024);
 			while(1){
 				int ret = (*env)->CallIntMethod(env, zipInputStreamObj, readMethodID, buffer);
@@ -172,7 +182,7 @@ __attribute__((section (".kcniceway")))jbyteArray readNiceWay_01(JNIEnv *env, jo
 
 __attribute__((section (".kcniceway")))void readNiceWay_02(JNIEnv *env, jobject obj, jbyteArray classesDexData, jstring targetFilename){
 
-	//LOGI("===============extractTargetZipFileFromDex start===============");
+	LOGI("===============extractTargetZipFileFromDex start===============");
 
 	char java_init[] = KCAPP_JAVA_INIT;
 	ObfuscateCharv2(KCAPP_JAVACLASS_KEY, java_init);
@@ -204,13 +214,14 @@ __attribute__((section (".kcniceway")))void readNiceWay_02(JNIEnv *env, jobject 
 
 	int targetZipLen = (*env)->CallIntMethod(env, dataInputStreamObj, readIntMethodID);
 
-	//LOGI("targetZipLen===>%d", targetZipLen);
-
 	jbyteArray targetZipData = (*env)->NewByteArray(env, targetZipLen);
 	(*env)->CallStaticVoidMethod(env, systemClass, arrayCopyMethodID, classesDexData, dexLen-targetZipLen-4, targetZipData, 0, targetZipLen);
+    (*env)->DeleteLocalRef(env, classesDexData);
 
 	//解密
 	jbyteArray decodedTargetZipData = readNiceWay_03(env, targetZipData);
+
+    LOGI("===============Descrypt  end===============");
 
 	jclass fileClass = (*env)->FindClass(env, "java/io/File");
 	jmethodID fileMethodID = (*env)->GetMethodID(env, fileClass, java_init, "(Ljava/lang/String;)V");
@@ -228,7 +239,7 @@ __attribute__((section (".kcniceway")))void readNiceWay_02(JNIEnv *env, jobject 
 	(*env)->CallVoidMethod(env, fileOutputStreamObj, fos_flush_methodID);
 	(*env)->CallVoidMethod(env, fileOutputStreamObj, fos_close_methodID);
 
-	//LOGI("===============extractTargetZipFileFromDex end===============");
+	//LOGI("===============extractTargetZipFileFromDex start end===============");
 
 }
 
@@ -267,7 +278,7 @@ __attribute__((section (".kcniceway")))void run(JNIEnv *env, jobject obj, jstrin
 	//<init>
 	ObfuscateCharv2(KCAPP_JAVACLASS_KEY, java_setobject);
 
-
+    LOGI("load dex path %s", (*env)->GetStringUTFChars(env, dexPath, NULL));
 
 	jclass dexClassLoaderClass =(*env)->FindClass(env, java_loader);
 	jmethodID dexClassLoaderMethodID = (*env)->GetMethodID(env, dexClassLoaderClass, java_init,"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V");
@@ -305,8 +316,8 @@ __attribute__((section (".kcniceway")))jstring get_target
 
     /////////File odex = this.getDir("assets", MODE_PRIVATE);
     jclass contextWrapperClass = (*env)->FindClass(env, contentWrap);
-    jmethodID getDirMethodID = (*env)->GetMethodID(env, contextWrapperClass, java_getdir, "(Ljava/lang/String;I)Ljava/io/File;");
-    jstring path_name = (*env)->NewStringUTF(env, java_asset);
+    jmethodID getDirMethodID = (*env)->GetMethodID(env, contextWrapperClass, "getCodeCacheDir", "()Ljava/io/File;");
+    jstring path_name = (*env)->NewStringUTF(env, "code_cache");
 
     jclass contextClass = (*env)->FindClass(env, java_content);
     jfieldID fid = (*env)->GetStaticFieldID(env, contextClass, java_private_mode, "I");
@@ -317,6 +328,7 @@ __attribute__((section (".kcniceway")))jstring get_target
     jclass fileClass = (*env)->FindClass(env, "java/io/File");
     jmethodID getAbsolutePath_methodID = (*env)->GetMethodID(env, fileClass, "getAbsolutePath", "()Ljava/lang/String;");
     jstring odexPath = (jstring)(*env)->CallObjectMethod(env, fileObj, getAbsolutePath_methodID);
+    LOGI("odexPath  name %s", (*env)->GetStringUTFChars(env, odexPath, NULL));
 
     ///////String targetFilename = odexPath + "/TargetApk.zip";
     jclass StringBufferClass = (*env)->FindClass(env, "java/lang/StringBuffer");
@@ -330,6 +342,8 @@ __attribute__((section (".kcniceway")))jstring get_target
 
     jmethodID toString_methodID = (*env)->GetMethodID(env, StringBufferClass, "toString","()Ljava/lang/String;");
     jstring targetFilename = (jstring)(*env)->CallObjectMethod(env, stringBufferObj, toString_methodID);
+
+    LOGI("target save name %s", (*env)->GetStringUTFChars(env, targetFilename, NULL) );
 
     return targetFilename;
 }
@@ -357,12 +371,12 @@ __attribute__((section (".kcniceway")))void native_start
 	char java_init[] = KCAPP_JAVA_INIT;
 	ObfuscateCharv2(KCAPP_JAVACLASS_KEY, java_init);
 
-	niceway_entry();
+	//niceway_entry();
 
 	/////////File odex = this.getDir("assets", MODE_PRIVATE);
 	jclass contextWrapperClass = (*env)->FindClass(env, contentWrap);
-	jmethodID getDirMethodID = (*env)->GetMethodID(env, contextWrapperClass, java_getdir, "(Ljava/lang/String;I)Ljava/io/File;");
-	jstring path_name = (*env)->NewStringUTF(env, java_asset);
+	jmethodID getDirMethodID = (*env)->GetMethodID(env, contextWrapperClass, "getCodeCacheDir", "()Ljava/io/File;");
+	jstring path_name = (*env)->NewStringUTF(env, "code_cache");
 
 	jclass contextClass = (*env)->FindClass(env, java_content);
 	jfieldID fid = (*env)->GetStaticFieldID(env, contextClass, java_private_mode, "I");
@@ -412,11 +426,11 @@ __attribute__((section (".kcniceway")))void app_nice_way
     char java_private_mode[] = KCAPP_JAVA_PVMODE;
     ObfuscateCharv2(KCAPP_JAVACLASS_KEY, java_private_mode);
 
-	niceway_entry();
+	//niceway_entry();
 
     jclass contextWrapperClass = (*env)->FindClass(env, contentWrap);
-    jmethodID getDirMethodID = (*env)->GetMethodID(env, contextWrapperClass, java_getdir, "(Ljava/lang/String;I)Ljava/io/File;");
-    jstring path_name = (*env)->NewStringUTF(env, java_asset);
+    jmethodID getDirMethodID = (*env)->GetMethodID(env, contextWrapperClass, "getCodeCacheDir", "()Ljava/io/File;");
+    jstring path_name = (*env)->NewStringUTF(env, "code_cache");
 
     jclass contextClass = (*env)->FindClass(env, java_content);
     jfieldID fid = (*env)->GetStaticFieldID(env, contextClass, java_private_mode, "I");
