@@ -280,11 +280,6 @@ __attribute__((section (".kcniceway")))void run(JNIEnv *env, jobject obj, jstrin
 	    return;
     }
 
-    if (xposed_anti(env))
-    {
-        return;
-    }
-
 	char java_loader[] = KCAPP_JAVA_LOADER;
 	//dalvik/system/DexClassLoader
 	ObfuscateCharv2(KCAPP_JAVACLASS_KEY, java_loader);
