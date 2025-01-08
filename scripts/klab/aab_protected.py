@@ -98,8 +98,7 @@ def klab_aab_protected(filepath, config):
             if dir == "smali":
                 apk_utils.smali2dex(os.path.join(apk_work_dir, "smali"), os.path.join(apk_work_dir, "classes.dex"))
             elif "smali" in dir:
-                apk_utils.smali2dex(os.path.join(apk_work_dir, dir), os.path.join(apk_work_dir, "classes" + dir[-1] + ".dex"))
-
+                apk_utils.smali2dex(os.path.join(apk_work_dir, dir), os.path.join(apk_work_dir, dir[6:] + ".dex"))
 
     # 5. 编译壳项目 做dex 加固
     jiagu.recompile_tuokeapk_project(applicationName)

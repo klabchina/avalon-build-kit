@@ -47,7 +47,7 @@ public class ProxyApplication extends Application{
 	public void onCreate() {
         try {
 			Log.e("KlabHack", "[KlabHack]=>onCreate()=>Start");
-			if (!isUIProcess())
+			if (!isUIProcess() || detectXposed())
 			{
 				return;
 			}
@@ -135,7 +135,6 @@ public class ProxyApplication extends Application{
 			        "mInitialApplication", currentActivityThread, app);
 
 
-
 			if(null == app)
 			{
 				Log.e("KlabHack", "[KlabHack]=>onCreate()=>app is null!!!");
@@ -211,6 +210,16 @@ public class ProxyApplication extends Application{
 		catch (Exception e)
         {
 			Log.v("KlabHack", "[KlabHack]=>onCreate() " + Log.getStackTraceString(e));
+		}
+	}
+
+	public boolean detectXposed() {
+		try {
+			// 尝试加载Xposed类
+			Class.forName("de.robv.android.xposed.XposedBridge");
+			return true; // 如果存在Xposed类，则Xposed框架已加载
+		} catch (ClassNotFoundException e) {
+			return false; // 未检测到Xposed
 		}
 	}
 
