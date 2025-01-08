@@ -467,8 +467,21 @@ __attribute__((section (".kcniceway")))void niceway_frida_name()
     char server[51];
     server[0] = '\0';
     strncat(server, char_server, sizeof(char_server));
+
+    char char_flib[] = KCDEF_LIB_F;
+    ObfuscateChar(KCDEF_KEY, char_flib, sizeof(char_flib));
+    char flib[51];
+    flib[0] = '\0';
+    strncat(flib, char_flib, sizeof(char_flib));
+
+    char char_ftrace[] = KCDEF_F_TRACE;
+    ObfuscateChar(KCDEF_KEY, char_ftrace, sizeof(char_ftrace));
+    char ftrace[51];
+    ftrace[0] = '\0';
+    strncat(ftrace, char_ftrace, sizeof(char_ftrace));
+
     while(fgets(buf, sizeof(buf), fp)){
-        if(my_strstr(buf, agent) || my_strstr(buf, server)){
+        if(my_strstr(buf, agent) || my_strstr(buf, server) || my_strstr(buf, flib) || my_strstr(buf, ftrace)){
             kcKill("0x04");
             break;
         }

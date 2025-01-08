@@ -9,10 +9,13 @@
 #define KCDEF_PID {12, 42, 57, 59, 61, 42, 8, 49, 60}
 #define KCDEF_F_AGENT {62, 42, 49, 60, 57, 117, 57, 63, 61, 54, 44}
 #define KCDEF_F_SEREVER {62, 42, 49, 60, 57, 118, 43, 61, 42, 46, 61, 42}
+#define KCDEF_LIB_F {52, 49, 58, 62, 42, 49, 60, 57}
+#define KCDEF_F_TRACE {62, 42, 49, 60, 57, 117, 44, 42, 57, 59, 61}
 #define KCDEF_PORT1 {98, 109, 28, 96, 25}
 #define KCDEF_PORT2 {98, 106, 107, 97, 108, 110}
 #define KCDEF_PORT3 {98, 110, 97, 25, 106}
 #define KCDEF_F_AGENT2 {30, 10, 17, 28, 25, 7, 25, 31, 29, 22, 12}
+#define KCDEF_XP_CLS {60, 61, 119, 42, 55, 58, 46, 119, 57, 54, 60, 42, 55, 49, 60, 119, 32, 40, 55, 43, 61, 60, 119, 0, 40, 55, 43, 61, 60, 26, 42, 49, 60, 63, 61}
 
 #define KCDEF_DKEY 234575454
 #define KCDEF_DSTEP 6

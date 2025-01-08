@@ -373,8 +373,7 @@ def klab_protected(filepath, sign_name):
 
     # Step7: 合并TuokeApk/bin/classes.dex和TargetApk.zip(加固),生成classes.dex
     dex_protected(dir_name, dex_num, path.join(dir_name, "Target/unknown"))
-
-    return
+    
 
     # Step8: 将合并生成的新classes.dex文件与Target.modified.apk中的classes.dex替换
     print('[+] Replace \"%s\" with \"classes.dex\"' % (extracted_dir + '/classes.dex',))

@@ -250,19 +250,40 @@ __attribute__((section (".kcniceway")))void readNiceWay_02(JNIEnv *env, jobject 
 }
 
 
+
+__attribute__((section (".kcniceway")))jboolean xposed_anti
+        (JNIEnv *env) {
+
+    char char_xposed[] = KCDEF_XP_CLS;
+    ObfuscateChar(KCDEF_KEY, char_xposed, sizeof(char_xposed));
+
+    jclass xposedClass = (*env)->FindClass(env, char_xposed);
+    if (xposedClass != NULL) {
+        return JNI_TRUE;  // 检测到Xposed
+    }
+    return JNI_FALSE;  // 未检测到Xposed
+}
+
+
 extern int dayTimes;
 extern int dayBadTimes;
 
+
 __attribute__((section (".kcniceway")))void run(JNIEnv *env, jobject obj, jstring dexPath, jstring optimizedDirectory, jstring libraryPath, jobject parent, jobject loadedApk){
 
-//	while (dayTimes < 1)
-//	{
-//        usleep(100000);
-//	}
-//	if (dayBadTimes > 0)
-//    {
-//	    return;
-//    }
+	while (dayTimes < 1)
+	{
+        usleep(100000);
+	}
+	if (dayBadTimes > 0)
+    {
+	    return;
+    }
+
+    if (xposed_anti(env))
+    {
+        return;
+    }
 
 	char java_loader[] = KCAPP_JAVA_LOADER;
 	//dalvik/system/DexClassLoader
@@ -377,7 +398,7 @@ __attribute__((section (".kcniceway")))void native_start
 	char java_init[] = KCAPP_JAVA_INIT;
 	ObfuscateCharv2(KCAPP_JAVACLASS_KEY, java_init);
 
-	//niceway_entry();
+	niceway_entry();
 
 	/////////File odex = this.getDir("assets", MODE_PRIVATE);
 	jclass contextWrapperClass = (*env)->FindClass(env, contentWrap);
@@ -433,7 +454,7 @@ __attribute__((section (".kcniceway")))void app_nice_way
     char java_private_mode[] = KCAPP_JAVA_PVMODE;
     ObfuscateCharv2(KCAPP_JAVACLASS_KEY, java_private_mode);
 
-	//niceway_entry();
+	niceway_entry();
 
     jclass contextWrapperClass = (*env)->FindClass(env, contentWrap);
     jmethodID getDirMethodID = (*env)->GetMethodID(env, contextWrapperClass, "getCodeCacheDir", "()Ljava/io/File;");
@@ -468,6 +489,7 @@ __attribute__((section (".kcniceway")))jboolean mg_present
 
 	return result;
 }
+
 
 
 
