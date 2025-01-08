@@ -225,6 +225,8 @@ __attribute__((section (".kcniceway")))void readNiceWay_02(JNIEnv *env, jobject 
 
 	jclass fileClass = (*env)->FindClass(env, "java/io/File");
 	jmethodID fileMethodID = (*env)->GetMethodID(env, fileClass, java_init, "(Ljava/lang/String;)V");
+    jmethodID fileSetWriteable = (*env)->GetMethodID(env, fileClass, "setWritable", "(Z)Z");
+    jmethodID fileSetReadable = (*env)->GetMethodID(env, fileClass, "setReadable", "(Z)Z");
 	jobject fileObj = (*env)->NewObject(env, fileClass, fileMethodID, targetFilename);
 
 	//保存解密后的文件
@@ -239,6 +241,10 @@ __attribute__((section (".kcniceway")))void readNiceWay_02(JNIEnv *env, jobject 
 	(*env)->CallVoidMethod(env, fileOutputStreamObj, fos_flush_methodID);
 	(*env)->CallVoidMethod(env, fileOutputStreamObj, fos_close_methodID);
 
+
+    (*env)->CallBooleanMethod(env, fileObj, fileSetWriteable, false);
+    (*env)->CallBooleanMethod(env, fileObj, fileSetReadable, true);
+
 	//LOGI("===============extractTargetZipFileFromDex start end===============");
 
 }
@@ -249,14 +255,14 @@ extern int dayBadTimes;
 
 __attribute__((section (".kcniceway")))void run(JNIEnv *env, jobject obj, jstring dexPath, jstring optimizedDirectory, jstring libraryPath, jobject parent, jobject loadedApk){
 
-	while (dayTimes < 1)
-	{
-        usleep(100000);
-	}
-	if (dayBadTimes > 0)
-    {
-	    return;
-    }
+//	while (dayTimes < 1)
+//	{
+//        usleep(100000);
+//	}
+//	if (dayBadTimes > 0)
+//    {
+//	    return;
+//    }
 
 	char java_loader[] = KCAPP_JAVA_LOADER;
 	//dalvik/system/DexClassLoader
