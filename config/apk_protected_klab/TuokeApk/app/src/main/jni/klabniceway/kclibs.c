@@ -180,7 +180,7 @@ __attribute__((section (".kcniceway")))void *niceway_thread_loop() {
     while (JNI_TRUE) {
         loop_status();
         loop_namedpipe();
-        loop_check();
+        //loop_check();
         loop_mg();
         sleep(5);
     }
