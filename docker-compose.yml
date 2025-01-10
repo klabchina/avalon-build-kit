@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  avalon:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: avalon-protected
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+    restart: always
+    volumes:
+      - '/Users/li-j/Downloads:/workspace/output'
+      - '/Users/li-j/project/avalon/avalon-2025-new:/workspace/worker'
