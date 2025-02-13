@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     namespace "org.hackcode"
     compileSdkVersion 34
-    ndkVersion "23.1.7779620"
+    ndkVersion "25.1.8937393"
 
     lintOptions {
         abortOnError false
