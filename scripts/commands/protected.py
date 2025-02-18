@@ -33,10 +33,14 @@ def protectedso(path, method, signname, env):
 @cli.command()
 @click.option('-p', '--path', type=str, default='', help=u'给aab 加固')
 @click.option('-s', '--signname', type=str, default='Penguin', help=u'签名选择')
+@click.option('-kp', '--keystorepath', type=str, default='', help=u'key store path')
+@click.option('-ksp', '--keystorepass', type=str, default='Penguin', help=u'keystore pass')
+@click.option('-ka', '--keyalias', type=str, default='Penguin', help=u'alias name')
+@click.option('-kap', '--keyaliaspassword', type=str, default='Penguin', help=u'alias password')
 @click.option('-e', '--env', type=bool, default=False, help=u'是否为DEV环境 默认正式')
-def protectedaab(path, signname, env):
+def protectedaab(path, signname, keystorepath, keystorepass, keyalias, keyaliaspassword, env):
     """aab 加壳"""
-    protect.protect_aab(path, signname, env)
+    protect.protect_aab(path, signname, keystorepath, keystorepass, keyalias, keyaliaspassword, env)
 
 
 @cli.command()

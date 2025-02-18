@@ -61,9 +61,18 @@ def protect_so_only(path, method, sign_name, env):
     return output_path
 
 # aab 加固
-def protect_aab(path, sign_name, env):
+def protect_aab(path, sign_name, keystorepath, keystorepass, keyalias, keyaliaspassword, env):
     global keystore_config
     keystore_config = conf_utils.get_protected_keystore(sign_name, env)
+    if keystorepath != "":
+        keystore_config["default"]["keystore"] = keystorepath
+    if keystorepass != "":
+        keystore_config["default"]["password"] = keystorepass
+    if keyalias != "":
+        keystore_config["default"]["aliaskey"] = keyalias
+    if keyaliaspassword != "":
+        keystore_config["default"]["aliaspwd"] = keyaliaspassword
+
     output_path = aab_protected.klab_aab_protected(path, keystore_config)
 
     sign_aab(output_path, " --min-sdk-version 21")
