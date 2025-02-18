@@ -132,10 +132,10 @@ def sign_apk(apkpath):
         raise UserWarning(msg)
 
 def sign_aab(apkpath, other_parms):
-    signcmd = '"%s" sign%s --ks "%s" --ks-pass pass:%s "%s" ' % (
+    signcmd = '"%s" sign%s --ks "%s" --ks-pass pass:%s --ks-key-alias %s --key-pass pass:%s "%s" ' % (
         file_utils.get_full_tool_path('apksigner'), other_parms,
         file_utils.get_full_path(keystore_config["default"]["keystore"]),
-        keystore_config["default"]['password'], apkpath)
+        keystore_config["default"]['password'], keystore_config["default"]['aliaskey'], keystore_config["default"]['aliaspwd'],  apkpath)
     ret = cli_utils.exec_cmd(signcmd)
     if ret:
         msg = "[Fail] sign apk file:%s" % (
