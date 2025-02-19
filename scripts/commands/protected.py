@@ -33,6 +33,7 @@ def protectedso(path, method, signname, env):
 @cli.command()
 @click.option('-p', '--path', type=str, default='', help=u'给aab 加固')
 @click.option('-s', '--signname', type=str, default='Penguin', help=u'签名选择')
+@click.option('-ks', '--keystorename', type=str, default='', help=u'keystore name')
 @click.option('-ksp', '--keystorepass', type=str, default='Penguin', help=u'keystore pass')
 @click.option('-ka', '--keyalias', type=str, default='Penguin', help=u'alias name')
 @click.option('-kap', '--keyaliaspassword', type=str, default='Penguin', help=u'alias password')
