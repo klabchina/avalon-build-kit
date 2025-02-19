@@ -61,10 +61,12 @@ def protect_so_only(path, method, sign_name, env):
     return output_path
 
 # aab 加固
-def protect_aab(path, sign_name, keystorepass, keyalias, keyaliaspassword, env):
+def protect_aab(path, sign_name, keystorename, keystorepass, keyalias, keyaliaspassword, env):
     global keystore_config
     keystore_config = conf_utils.get_protected_keystore(sign_name, env)
     
+    if keystorename != "":
+        keystore_config["default"]["keystore"] = keystorename
     if keystorepass != "":
         keystore_config["default"]["password"] = keystorepass
     if keyalias != "":
